@@ -30,6 +30,8 @@ jobs:
 
       - name: Extract metadata from issue
         id: extract-metadata
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           # Extract metadata from issue body, repository dispatch, or manual dispatch
           if [ "${{ github.event_name }}" == "repository_dispatch" ]; then
