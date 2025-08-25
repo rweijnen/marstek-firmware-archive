@@ -78,9 +78,9 @@ jobs:
             echo "$issue_body" | sed -n '/```json/,/```/p' | sed '1d;$d' > metadata.json
           fi
           
-          # CT devices use flatter structure
-          if [[ "$device_type" == CT* ]]; then
-            echo "Target path: firmwares/$device_type/$version/ (CT device - no firmware type subfolder)"
+          # HME-3 and HME-4 devices use flatter structure
+          if [[ "$device_type" == "HME-3" ]] || [[ "$device_type" == "HME-4" ]]; then
+            echo "Target path: firmwares/$device_type/$version/ (HME device - no firmware type subfolder)"
           else
             echo "Target path: firmwares/$device_type/$firmware_type/$version/"
           fi
@@ -105,8 +105,8 @@ jobs:
           firmware_type_json=$(jq -r '.firmwareType' metadata.json)
           version_json=$(jq -r '.version' metadata.json)
           
-          # For CT devices, firmwareType is not required
-          if [[ "$device_type_json" == CT* ]]; then
+          # For HME-3 and HME-4 devices, firmwareType is not required
+          if [[ "$device_type_json" == "HME-3" ]] || [[ "$device_type_json" == "HME-4" ]]; then
             if [ "$device_type_json" == "null" ] || [ "$version_json" == "null" ]; then
               echo "error=Missing required fields in metadata (deviceType, version)" >> $GITHUB_OUTPUT
               exit 1
@@ -127,8 +127,8 @@ jobs:
           firmware_type="${{ steps.extract-metadata.outputs.firmware_type }}"
           version="${{ steps.extract-metadata.outputs.version }}"
           
-          # CT devices use flatter structure
-          if [[ "$device_type" == CT* ]]; then
+          # HME-3 and HME-4 devices use flatter structure
+          if [[ "$device_type" == "HME-3" ]] || [[ "$device_type" == "HME-4" ]]; then
             target_path="firmwares/$device_type/$version"
           else
             target_path="firmwares/$device_type/$firmware_type/$version"
@@ -172,8 +172,8 @@ jobs:
           firmware_type="${{ steps.extract-metadata.outputs.firmware_type }}"
           version="${{ steps.extract-metadata.outputs.version }}"
           
-          # CT devices use flatter structure
-          if [[ "$device_type" == CT* ]]; then
+          # HME-3 and HME-4 devices use flatter structure
+          if [[ "$device_type" == "HME-3" ]] || [[ "$device_type" == "HME-4" ]]; then
             target_path="firmwares/$device_type/$version"
           else
             target_path="firmwares/$device_type/$firmware_type/$version"
