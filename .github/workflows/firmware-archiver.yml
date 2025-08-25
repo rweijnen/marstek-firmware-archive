@@ -1,0 +1,251 @@
+name: Firmware Archiver
+
+on:
+  repository_dispatch:
+    types: [firmware_submission]
+  issues:
+    types: [opened]
+
+jobs:
+  process-firmware-submission:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'repository_dispatch' || (github.event_name == 'issues' && contains(github.event.issue.labels.*.name, 'firmware-submission'))
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Extract metadata from issue
+        id: extract-metadata
+        run: |
+          # Extract metadata from issue body or repository dispatch
+          if [ "${{ github.event_name }}" == "repository_dispatch" ]; then
+            echo "issue_number=${{ github.event.client_payload.issue_number }}" >> $GITHUB_OUTPUT
+            echo "device_type=${{ github.event.client_payload.deviceType }}" >> $GITHUB_OUTPUT
+            echo "firmware_type=${{ github.event.client_payload.firmwareType }}" >> $GITHUB_OUTPUT
+            echo "version=${{ github.event.client_payload.version }}" >> $GITHUB_OUTPUT
+            echo '${{ toJson(github.event.client_payload.metadata) }}' > metadata.json
+          else
+            # Extract from issue body using regex
+            issue_body="${{ github.event.issue.body }}"
+            device_type=$(echo "$issue_body" | grep -oP '(?<=\*\*Device Type:\*\* )[^\n]+' | head -1)
+            firmware_type=$(echo "$issue_body" | grep -oP '(?<=\*\*Firmware Type:\*\* )[^\n]+' | head -1)
+            version=$(echo "$issue_body" | grep -oP '(?<=\*\*Version:\*\* )[^\n]+' | head -1)
+            
+            echo "issue_number=${{ github.event.issue.number }}" >> $GITHUB_OUTPUT
+            echo "device_type=$device_type" >> $GITHUB_OUTPUT
+            echo "firmware_type=$firmware_type" >> $GITHUB_OUTPUT
+            echo "version=$version" >> $GITHUB_OUTPUT
+            
+            # Extract JSON metadata from code block
+            echo "$issue_body" | sed -n '/```json/,/```/p' | sed '1d;$d' > metadata.json
+          fi
+          
+          # CT devices use flatter structure
+          if [[ "$device_type" == CT* ]]; then
+            echo "Target path: firmwares/$device_type/$version/ (CT device - no firmware type subfolder)"
+          else
+            echo "Target path: firmwares/$device_type/$firmware_type/$version/"
+          fi
+
+      - name: Validate metadata
+        id: validate
+        run: |
+          # Check if metadata.json exists and is valid
+          if [ ! -f metadata.json ]; then
+            echo "error=No metadata found" >> $GITHUB_OUTPUT
+            exit 1
+          fi
+          
+          # Validate JSON syntax
+          if ! jq empty metadata.json 2>/dev/null; then
+            echo "error=Invalid JSON metadata" >> $GITHUB_OUTPUT
+            exit 1
+          fi
+          
+          # Check required fields
+          device_type_json=$(jq -r '.deviceType' metadata.json)
+          firmware_type_json=$(jq -r '.firmwareType' metadata.json)
+          version_json=$(jq -r '.version' metadata.json)
+          
+          if [ "$device_type_json" == "null" ] || [ "$firmware_type_json" == "null" ] || [ "$version_json" == "null" ]; then
+            echo "error=Missing required fields in metadata" >> $GITHUB_OUTPUT
+            exit 1
+          fi
+          
+          echo "validation=success" >> $GITHUB_OUTPUT
+
+      - name: Check if firmware already exists
+        id: check-existing
+        run: |
+          device_type="${{ steps.extract-metadata.outputs.device_type }}"
+          firmware_type="${{ steps.extract-metadata.outputs.firmware_type }}"
+          version="${{ steps.extract-metadata.outputs.version }}"
+          
+          # CT devices use flatter structure
+          if [[ "$device_type" == CT* ]]; then
+            target_path="firmwares/$device_type/$version"
+          else
+            target_path="firmwares/$device_type/$firmware_type/$version"
+          fi
+          
+          if [ -d "$target_path" ]; then
+            echo "exists=true" >> $GITHUB_OUTPUT
+            echo "Firmware already exists at $target_path"
+          else
+            echo "exists=false" >> $GITHUB_OUTPUT
+            echo "Firmware does not exist, proceeding with download"
+          fi
+
+      - name: Download firmware
+        if: steps.check-existing.outputs.exists == 'false'
+        id: download
+        run: |
+          # Extract download URL from metadata
+          download_url=$(jq -r '.url // .downloadUrl // .firmware_url // empty' metadata.json)
+          
+          if [ -z "$download_url" ] || [ "$download_url" == "null" ]; then
+            # Try to find URL in nested objects
+            download_url=$(jq -r '.. | .url? // .downloadUrl? // .firmware_url? // empty' metadata.json | head -1)
+          fi
+          
+          if [ -z "$download_url" ] || [ "$download_url" == "null" ]; then
+            echo "error=No download URL found in metadata" >> $GITHUB_OUTPUT
+            exit 1
+          fi
+          
+          echo "Found download URL: $download_url"
+          
+          # Download firmware file
+          filename=$(basename "$download_url" | cut -d'?' -f1)
+          if [[ ! "$filename" == *.bin ]]; then
+            filename="firmware.bin"
+          fi
+          
+          # Create target directory with correct structure
+          device_type="${{ steps.extract-metadata.outputs.device_type }}"
+          firmware_type="${{ steps.extract-metadata.outputs.firmware_type }}"
+          version="${{ steps.extract-metadata.outputs.version }}"
+          
+          # CT devices use flatter structure
+          if [[ "$device_type" == CT* ]]; then
+            target_path="firmwares/$device_type/$version"
+          else
+            target_path="firmwares/$device_type/$firmware_type/$version"
+          fi
+          
+          mkdir -p "$target_path"
+          
+          echo "Downloading to: $target_path/$filename"
+          
+          # Download with retries
+          max_retries=3
+          retry_count=0
+          
+          while [ $retry_count -lt $max_retries ]; do
+            if curl -L -o "$target_path/$filename" "$download_url"; then
+              break
+            else
+              retry_count=$((retry_count + 1))
+              echo "Download attempt $retry_count failed, retrying..."
+              sleep 5
+            fi
+          done
+          
+          if [ $retry_count -eq $max_retries ]; then
+            echo "error=Download failed after $max_retries attempts" >> $GITHUB_OUTPUT
+            exit 1
+          fi
+          
+          # Verify download
+          if [ ! -f "$target_path/$filename" ] || [ ! -s "$target_path/$filename" ]; then
+            echo "error=Downloaded file is empty or missing" >> $GITHUB_OUTPUT
+            exit 1
+          fi
+          
+          file_size=$(stat -f%z "$target_path/$filename" 2>/dev/null || stat -c%s "$target_path/$filename")
+          echo "Downloaded firmware: $filename (${file_size} bytes)"
+          
+          # Add submission timestamp to metadata
+          jq --arg timestamp "$(date -u +%Y-%m-%dT%H:%M:%SZ)" \
+             --arg filename "$filename" \
+             --arg filesize "$file_size" \
+             '. + {archivedAt: $timestamp, archivedFilename: $filename, archivedFilesize: ($filesize | tonumber)}' \
+             metadata.json > "$target_path/metadata.json"
+          
+          echo "download_path=$target_path" >> $GITHUB_OUTPUT
+          echo "filename=$filename" >> $GITHUB_OUTPUT
+
+      - name: Commit files
+        if: steps.check-existing.outputs.exists == 'false' && steps.download.outputs.download_path
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          
+          git add "${{ steps.download.outputs.download_path }}/"
+          git commit -m "Archive firmware: ${{ steps.extract-metadata.outputs.device_type }} ${{ steps.extract-metadata.outputs.firmware_type }} v${{ steps.extract-metadata.outputs.version }}
+
+          - Device: ${{ steps.extract-metadata.outputs.device_type }}
+          - Type: ${{ steps.extract-metadata.outputs.firmware_type }}  
+          - Version: ${{ steps.extract-metadata.outputs.version }}
+          - File: ${{ steps.download.outputs.filename }}
+          - Issue: #${{ steps.extract-metadata.outputs.issue_number }}"
+          
+          git push
+
+      - name: Update issue with results
+        if: always()
+        run: |
+          issue_number="${{ steps.extract-metadata.outputs.issue_number }}"
+          
+          if [ "${{ steps.check-existing.outputs.exists }}" == "true" ]; then
+            # Firmware already exists
+            comment="✅ **Firmware Already Archived**
+
+            This firmware version is already available in the archive:
+            - Path: \`firmwares/${{ steps.extract-metadata.outputs.device_type }}/${{ steps.extract-metadata.outputs.firmware_type }}/${{ steps.extract-metadata.outputs.version }}/\`
+            - View: [Browse Archive](https://github.com/${{ github.repository }}/tree/main/firmwares/${{ steps.extract-metadata.outputs.device_type }}/${{ steps.extract-metadata.outputs.firmware_type }}/${{ steps.extract-metadata.outputs.version }})
+
+            This issue will be closed as the firmware is already available."
+            
+            gh issue comment "$issue_number" --body "$comment"
+            gh issue close "$issue_number" --reason completed
+            
+          elif [ "${{ steps.download.outputs.download_path }}" != "" ]; then
+            # Successful download
+            comment="✅ **Firmware Successfully Archived**
+
+            The firmware has been downloaded and added to the archive:
+            - Path: \`${{ steps.download.outputs.download_path }}/\`
+            - File: \`${{ steps.download.outputs.filename }}\`
+            - Commit: ${{ github.sha }}
+            - View: [Browse Archive](https://github.com/${{ github.repository }}/tree/main/${{ steps.download.outputs.download_path }})
+
+            The firmware is now available for download from the archive."
+            
+            gh issue comment "$issue_number" --body "$comment"
+            gh issue close "$issue_number" --reason completed
+            
+          else
+            # Error occurred
+            error_msg="${{ steps.validate.outputs.error }}${{ steps.download.outputs.error }}"
+            comment="❌ **Firmware Archive Failed**
+
+            There was an error processing this firmware submission:
+            - Error: $error_msg
+            - Status: Failed to download or validate firmware
+
+            Please check the submission data and try again."
+            
+            gh issue comment "$issue_number" --body "$comment"
+            gh issue add-label "$issue_number" error
+          fi
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
