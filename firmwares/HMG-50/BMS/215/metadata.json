@@ -1,0 +1,47 @@
+{
+  "deviceType": "HMG-50",
+  "firmwareType": "BMS",
+  "version": 215,
+  "url": "https://eu-central-1-s3-common-bucket.s3.dualstack.eu-central-1.amazonaws.com/uploads/ota/20250806/20250806112046448ef9739.bin",
+  "remark": "满电回差由97调整到99，优化升级稳定性。",
+  "chinese": "满电回差由97调整到99，优化升级稳定性。",
+  "apiResponse": {
+    "code": 1,
+    "show": 0,
+    "msg": "success",
+    "data": {
+      "control": {
+        "edition": 1458,
+        "devicetype": "",
+        "mcu_type": "control",
+        "type": "HMG",
+        "url": "https://eu-central-1-s3-common-bucket.s3.dualstack.eu-central-1.amazonaws.com/uploads/ota/20250530/202505301136007a5b57023.bin",
+        "version": 153,
+        "english": "",
+        "chinese": "1、支持对无密码WIFI进行配网功能；2、优化一些已知问题",
+        "japanese": "",
+        "remark": ""
+      },
+      "bms": {
+        "edition": 2025,
+        "devicetype": "",
+        "mcu_type": "bms",
+        "type": "HMG-50",
+        "url": "https://eu-central-1-s3-common-bucket.s3.dualstack.eu-central-1.amazonaws.com/uploads/ota/20250806/20250806112046448ef9739.bin",
+        "version": 215,
+        "english": "",
+        "chinese": "满电回差由97调整到99，优化升级稳定性。",
+        "japanese": "",
+        "remark": "满电回差由97调整到99，优化升级稳定性。"
+      },
+      "mppt": "",
+      "micro": "",
+      "dcdc": "",
+      "bms_pack1": "",
+      "bms_pack2": ""
+    }
+  },
+  "archivedAt": "2025-08-25T09:43:16Z",
+  "archivedFilename": "20250806112046448ef9739.bin",
+  "archivedFilesize": 73728
+}
