@@ -1,0 +1,23 @@
+{
+  "apiResponse": {
+    "chinese": "1、优化了UDP接收和重启优化\n2、加入蓝牙升级移远模组命令\n3、CT3修复7E1配置bug，优化了SML协议解析，以及加入SML协议打印功能",
+    "code": "1",
+    "content": "English",
+    "data": "https://eu-central-1-s3-common-bucket.s3.dualstack.eu-central-1.amazonaws.com/uploads/ota/20250702/20250702110345eebe62348.bin",
+    "english": "1、优化了UDP接收和重启优化\n2、加入蓝牙升级移远模组命令\n3、CT3修复7E1配置bug，优化了SML协议解析，以及加入SML协议打印功能",
+    "japanese": "",
+    "newVerion": "117",
+    "otaWay": "otaSelfBoot"
+  },
+  "chinese": "1、优化了UDP接收和重启优化\n2、加入蓝牙升级移远模组命令\n3、CT3修复7E1配置bug，优化了SML协议解析，以及加入SML协议打印功能",
+  "deviceName": "MST-SMR_0844",
+  "deviceType": "HME-3",
+  "english": "1、优化了UDP接收和重启优化\n2、加入蓝牙升级移远模组命令\n3、CT3修复7E1配置bug，优化了SML协议解析，以及加入SML协议打印功能",
+  "otaWay": "otaSelfBoot",
+  "url": "https://eu-central-1-s3-common-bucket.s3.dualstack.eu-central-1.amazonaws.com/uploads/ota/20250702/20250702110345eebe62348.bin",
+  "version": "117",
+  "archivedAt": "2025-08-25T11:31:13Z",
+  "archivedFilename": "20250702110345eebe62348.bin",
+  "archivedFilesize": 73728,
+  "issueNumber": 7
+}
