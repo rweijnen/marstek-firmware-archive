@@ -45,7 +45,7 @@ function findFirmwareFiles(dir = './firmwares') {
               const binaryPath = path.join(fullPath, metadata.archivedFilename);
               
               firmwares.push({
-                deviceType: deviceType,
+                deviceType: metadata.deviceType || deviceType, // Use metadata deviceType if available
                 firmwareType: firmwareType,
                 version: version,
                 filename: metadata.archivedFilename,
@@ -53,6 +53,8 @@ function findFirmwareFiles(dir = './firmwares') {
                 archivedAt: metadata.archivedAt,
                 issueNumber: metadata.issueNumber,
                 description: metadata.english || metadata.chinese || metadata.remark || '',
+                originalDescription: metadata.chinese || metadata.remark || '',
+                translatedDescription: metadata.english || '',
                 relativePath: path.relative('.', binaryPath).replace(/\\/g, '/'),
                 metadataPath: path.relative('.', metadataPath).replace(/\\/g, '/')
               });
@@ -130,13 +132,29 @@ Community firmware archive for Marstek solar/battery devices.
         readme += "|---------|-----------|-------|----------|-------|-------------|\n";
         
         deviceGroups[deviceType][firmwareType].forEach(fw => {
-          const description = fw.description.length > 80 
-            ? fw.description.substring(0, 80) + '...' 
-            : fw.description;
-          
           const issueLink = fw.issueNumber ? `[#${fw.issueNumber}](../../issues/${fw.issueNumber})` : '-';
           
-          readme += `| v${fw.version} | ${formatFileSize(fw.filesize)} | ${formatDate(fw.archivedAt)} | [📁 ${fw.filename}](${fw.relativePath}) | ${issueLink} | ${description.replace(/\|/g, '\\|').replace(/\n/g, ' ')} |\n`;
+          let description = '';
+          const hasChineseChars = /[\u4e00-\u9fff]/.test(fw.description);
+          
+          if (fw.originalDescription && fw.translatedDescription && fw.originalDescription !== fw.translatedDescription) {
+            // Different original and translated - show both with translate link
+            const original = fw.originalDescription.length > 40 ? fw.originalDescription.substring(0, 40) + '...' : fw.originalDescription;
+            const translated = fw.translatedDescription.length > 40 ? fw.translatedDescription.substring(0, 40) + '...' : fw.translatedDescription;
+            const translateUrl = `https://translate.google.com/?sl=auto&tl=en&text=${encodeURIComponent(fw.originalDescription)}`;
+            description = `${original.replace(/\n/g, ' ')} <br/> [🌐 ${translated.replace(/\n/g, ' ')}](${translateUrl})`;
+          } else if (hasChineseChars) {
+            // Chinese text - add translate link
+            const text = fw.description.length > 60 ? fw.description.substring(0, 60) + '...' : fw.description;
+            const translateUrl = `https://translate.google.com/?sl=zh&tl=en&text=${encodeURIComponent(fw.description)}`;
+            description = `${text.replace(/\n/g, ' ')} [🌐](${translateUrl} "Translate to English")`;
+          } else {
+            // English or other text without translation
+            const text = fw.description.length > 80 ? fw.description.substring(0, 80) + '...' : fw.description;
+            description = text.replace(/\n/g, ' ');
+          }
+          
+          readme += `| v${fw.version} | ${formatFileSize(fw.filesize)} | ${formatDate(fw.archivedAt)} | [📁 ${fw.filename}](${fw.relativePath}) | ${issueLink} | ${description.replace(/\|/g, '\\|')} |\n`;
           totalCount++;
         });
         
