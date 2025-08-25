@@ -4,11 +4,11 @@ Community firmware archive for Marstek solar/battery devices.
 
 ## Available Firmware
 
-### CT002
+### HME-4
 
 | Version | File Size | Added | Download | Issue | Description |
 |---------|-----------|-------|----------|-------|-------------|
-| v120 | 66 KB | Aug 25, 2025 | [📁 202507021110400569f6547.bin](firmwares/CT002/120/202507021110400569f6547.bin) | - | 1、优化了UDP接收和重启优化 2、加入蓝牙升级移远模组命令 3、连接从机改到15台 |
+| v120 | 66 KB | Aug 25, 2025 | [📁 202507021110400569f6547.bin](firmwares/HME-4/120/202507021110400569f6547.bin) | - | 1、优化了UDP接收和重启优化 2、加入蓝牙升级移远模组命令 3、连接从机改到15台 |
 
 ### HMG-50
 
@@ -27,7 +27,7 @@ Community firmware archive for Marstek solar/battery devices.
 ---
 
 **Total firmware files:** 3
-**Last updated:** 8/25/2025, 10:18:27 AM UTC
+**Last updated:** 8/25/2025, 10:19:18 AM UTC
 
 ## Usage
 
