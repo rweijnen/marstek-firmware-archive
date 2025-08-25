@@ -2,6 +2,7 @@
 
 const fs = require('fs');
 const path = require('path');
+const https = require('https');
 
 function formatFileSize(bytes) {
   const sizes = ['B', 'KB', 'MB', 'GB'];
@@ -17,6 +18,8 @@ function formatDate(dateString) {
     day: 'numeric'
   });
 }
+
+// Remove translation function - we'll use inline popup instead
 
 function findFirmwareFiles(dir = './firmwares') {
   const firmwares = [];
@@ -119,11 +122,11 @@ Community firmware archive for Marstek solar/battery devices.
   } else {
     let totalCount = 0;
     
-    sortedDevices.forEach(deviceType => {
+    for (const deviceType of sortedDevices) {
       readme += `### ${deviceType}\n\n`;
       
       const types = Object.keys(deviceGroups[deviceType]).sort();
-      types.forEach(firmwareType => {
+      for (const firmwareType of types) {
         if (types.length > 1) {
           readme += `#### ${firmwareType}\n\n`;
         }
@@ -138,16 +141,15 @@ Community firmware archive for Marstek solar/battery devices.
           const hasChineseChars = /[\u4e00-\u9fff]/.test(fw.description);
           
           if (fw.originalDescription && fw.translatedDescription && fw.originalDescription !== fw.translatedDescription) {
-            // Different original and translated - show both with translate link
-            const original = fw.originalDescription.length > 40 ? fw.originalDescription.substring(0, 40) + '...' : fw.originalDescription;
-            const translated = fw.translatedDescription.length > 40 ? fw.translatedDescription.substring(0, 40) + '...' : fw.translatedDescription;
-            const translateUrl = `https://translate.google.com/?sl=auto&tl=en&text=${encodeURIComponent(fw.originalDescription)}`;
-            description = `${original.replace(/\n/g, ' ')} <br/> [🌐 ${translated.replace(/\n/g, ' ')}](${translateUrl})`;
+            // Different original and translated - show both
+            const original = fw.originalDescription.length > 50 ? fw.originalDescription.substring(0, 50) + '...' : fw.originalDescription;
+            const translated = fw.translatedDescription.length > 50 ? fw.translatedDescription.substring(0, 50) + '...' : fw.translatedDescription;
+            description = `${original.replace(/\n/g, ' ')} <br/> *${translated.replace(/\n/g, ' ')}*`;
           } else if (hasChineseChars) {
-            // Chinese text - add translate link
+            // Chinese text with inline translate toggle
             const text = fw.description.length > 60 ? fw.description.substring(0, 60) + '...' : fw.description;
-            const translateUrl = `https://translate.google.com/?sl=zh&tl=en&text=${encodeURIComponent(fw.description)}`;
-            description = `${text.replace(/\n/g, ' ')} [🌐](${translateUrl} "Translate to English")`;
+            const fullText = fw.description.replace(/\n/g, ' ').replace(/'/g, "\\'");
+            description = `<span>${text.replace(/\n/g, ' ')}</span> <a href="#" onclick="translateInline(this, '${fullText}'); return false;" title="Click to translate">🌐</a>`;
           } else {
             // English or other text without translation
             const text = fw.description.length > 80 ? fw.description.substring(0, 80) + '...' : fw.description;
@@ -159,8 +161,8 @@ Community firmware archive for Marstek solar/battery devices.
         });
         
         readme += "\n";
-      });
-    });
+      }
+    }
     
     readme += `---\n\n**Total firmware files:** ${totalCount}\n`;
     readme += `**Last updated:** ${new Date().toLocaleString('en-US', { timeZone: 'UTC' })} UTC\n\n`;
@@ -184,12 +186,60 @@ This archive is automatically maintained. Firmware submissions are processed via
 Each firmware directory contains:
 - Binary firmware file
 - \`metadata.json\` with submission details and checksums
+
+<script>
+async function translateInline(element, text) {
+  if (element.dataset.translated === 'true') {
+    // Show original
+    element.previousElementSibling.textContent = element.dataset.original;
+    element.textContent = '🌐';
+    element.title = 'Click to translate';
+    element.dataset.translated = 'false';
+  } else {
+    // Store original and translate
+    if (!element.dataset.original) {
+      element.dataset.original = element.previousElementSibling.textContent;
+    }
+    
+    element.textContent = '⏳';
+    element.title = 'Translating...';
+    
+    try {
+      const response = await fetch(\`https://api.mymemory.translated.net/get?q=\${encodeURIComponent(text)}&langpair=zh|en\`);
+      const data = await response.json();
+      
+      if (data.responseData && data.responseData.translatedText) {
+        element.previousElementSibling.textContent = data.responseData.translatedText;
+        element.textContent = '🔄';
+        element.title = 'Click to show original';
+        element.dataset.translated = 'true';
+      } else {
+        throw new Error('Translation failed');
+      }
+    } catch (error) {
+      console.error('Translation error:', error);
+      element.textContent = '❌';
+      element.title = 'Translation failed';
+      setTimeout(() => {
+        element.textContent = '🌐';
+        element.title = 'Click to translate';
+      }, 2000);
+    }
+  }
+}
+</script>
 `;
 
   return readme;
 }
 
 // Generate and write README
-const readmeContent = generateReadme();
-fs.writeFileSync('README.md', readmeContent);
-console.log('README.md updated successfully');
+try {
+  console.log('Generating README with inline translation...');
+  const readmeContent = generateReadme();
+  fs.writeFileSync('README.md', readmeContent);
+  console.log('README.md updated successfully');
+} catch (error) {
+  console.error('Error generating README:', error);
+  process.exit(1);
+}
