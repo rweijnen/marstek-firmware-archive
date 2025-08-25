@@ -105,9 +105,17 @@ jobs:
           firmware_type_json=$(jq -r '.firmwareType' metadata.json)
           version_json=$(jq -r '.version' metadata.json)
           
-          if [ "$device_type_json" == "null" ] || [ "$firmware_type_json" == "null" ] || [ "$version_json" == "null" ]; then
-            echo "error=Missing required fields in metadata" >> $GITHUB_OUTPUT
-            exit 1
+          # For CT devices, firmwareType is not required
+          if [[ "$device_type_json" == CT* ]]; then
+            if [ "$device_type_json" == "null" ] || [ "$version_json" == "null" ]; then
+              echo "error=Missing required fields in metadata (deviceType, version)" >> $GITHUB_OUTPUT
+              exit 1
+            fi
+          else
+            if [ "$device_type_json" == "null" ] || [ "$firmware_type_json" == "null" ] || [ "$version_json" == "null" ]; then
+              echo "error=Missing required fields in metadata (deviceType, firmwareType, version)" >> $GITHUB_OUTPUT
+              exit 1
+            fi
           fi
           
           echo "validation=success" >> $GITHUB_OUTPUT
@@ -275,7 +283,7 @@ jobs:
             Please check the submission data and try again."
             
             gh issue comment "$issue_number" --body "$comment"
-            gh issue add-label "$issue_number" error
+            gh issue edit "$issue_number" --add-label error
           fi
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
