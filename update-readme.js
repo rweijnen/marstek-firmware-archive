@@ -174,9 +174,26 @@ Community firmware archive for Marstek solar/battery devices.
 2. Click the download link to get the binary file
 3. Use your device's firmware update mechanism to install
 
+## Firmware Query Tool
+
+🔍 **[Marstek Firmware Query Tool](https://github.com/rweijnen/marstek-firmware-query)**
+
+This companion tool allows you to:
+- Query the latest available firmware directly from Marstek servers for your specific device(s)
+- Check firmware versions and release notes before downloading
+- Optionally submit newly discovered firmware to this archive automatically
+- Batch query multiple devices at once
+
+The query tool fetches real-time firmware information and can help keep this archive up-to-date by submitting new firmware versions as they become available.
+
 ## Contributing
 
 This archive is automatically maintained. Firmware submissions are processed via GitHub Issues with the \`firmware-submission\` label.
+
+You can contribute by:
+- Using the [Firmware Query Tool](https://github.com/rweijnen/marstek-firmware-query) to discover and submit new firmware
+- Manually creating issues with firmware submission data
+- Reporting issues with existing firmware files
 
 ## Archive Structure
 
