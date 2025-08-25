@@ -1,0 +1,22 @@
+{
+  "apiResponse": {
+    "chinese": "1、优化了UDP接收和重启优化\n2、加入蓝牙升级移远模组命令\n3、连接从机改到15台",
+    "code": "1",
+    "content": "English",
+    "data": "https://eu-central-1-s3-common-bucket.s3.dualstack.eu-central-1.amazonaws.com/uploads/ota/20250702/202507021110400569f6547.bin",
+    "english": "1、优化了UDP接收和重启优化\n2、加入蓝牙升级移远模组命令\n3、连接从机改到15台",
+    "japanese": "",
+    "newVerion": "120",
+    "otaWay": "otaSelfBoot"
+  },
+  "chinese": "1、优化了UDP接收和重启优化\n2、加入蓝牙升级移远模组命令\n3、连接从机改到15台",
+  "deviceName": "CT002",
+  "deviceType": "HME-4",
+  "english": "1、优化了UDP接收和重启优化\n2、加入蓝牙升级移远模组命令\n3、连接从机改到15台",
+  "otaWay": "otaSelfBoot",
+  "url": "https://eu-central-1-s3-common-bucket.s3.dualstack.eu-central-1.amazonaws.com/uploads/ota/20250702/202507021110400569f6547.bin",
+  "version": "120",
+  "archivedAt": "2025-08-25T10:10:21Z",
+  "archivedFilename": "202507021110400569f6547.bin",
+  "archivedFilesize": 67584
+}
