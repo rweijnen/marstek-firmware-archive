@@ -5,11 +5,17 @@ on:
     types: [firmware_submission]
   issues:
     types: [opened]
+  workflow_dispatch:
+    inputs:
+      issue_number:
+        description: 'Issue number to process'
+        required: true
+        type: string
 
 jobs:
   process-firmware-submission:
     runs-on: ubuntu-latest
-    if: github.event_name == 'repository_dispatch' || (github.event_name == 'issues' && contains(github.event.issue.labels.*.name, 'firmware-submission'))
+    if: github.event_name == 'repository_dispatch' || (github.event_name == 'issues' && contains(github.event.issue.labels.*.name, 'firmware-submission')) || github.event_name == 'workflow_dispatch'
     
     steps:
       - name: Checkout repository
@@ -25,13 +31,29 @@ jobs:
       - name: Extract metadata from issue
         id: extract-metadata
         run: |
-          # Extract metadata from issue body or repository dispatch
+          # Extract metadata from issue body, repository dispatch, or manual dispatch
           if [ "${{ github.event_name }}" == "repository_dispatch" ]; then
             echo "issue_number=${{ github.event.client_payload.issue_number }}" >> $GITHUB_OUTPUT
             echo "device_type=${{ github.event.client_payload.deviceType }}" >> $GITHUB_OUTPUT
             echo "firmware_type=${{ github.event.client_payload.firmwareType }}" >> $GITHUB_OUTPUT
             echo "version=${{ github.event.client_payload.version }}" >> $GITHUB_OUTPUT
             echo '${{ toJson(github.event.client_payload.metadata) }}' > metadata.json
+          elif [ "${{ github.event_name }}" == "workflow_dispatch" ]; then
+            # Get issue data for manual dispatch
+            issue_data=$(gh issue view ${{ github.event.inputs.issue_number }} --json body,number)
+            issue_body=$(echo "$issue_data" | jq -r '.body')
+            echo "issue_number=${{ github.event.inputs.issue_number }}" >> $GITHUB_OUTPUT
+            
+            device_type=$(echo "$issue_body" | grep -oP '(?<=\*\*Device Type:\*\* )[^\n]+' | head -1)
+            firmware_type=$(echo "$issue_body" | grep -oP '(?<=\*\*Firmware Type:\*\* )[^\n]+' | head -1)
+            version=$(echo "$issue_body" | grep -oP '(?<=\*\*Version:\*\* )[^\n]+' | head -1)
+            
+            echo "device_type=$device_type" >> $GITHUB_OUTPUT
+            echo "firmware_type=$firmware_type" >> $GITHUB_OUTPUT
+            echo "version=$version" >> $GITHUB_OUTPUT
+            
+            # Extract JSON metadata from code block
+            echo "$issue_body" | sed -n '/```json/,/```/p' | sed '1d;$d' > metadata.json
           else
             # Extract from issue body using regex
             issue_body=$(cat <<'EOF'
