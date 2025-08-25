@@ -35,9 +35,9 @@ jobs:
           else
             # Extract from issue body using regex
             issue_body=$(cat <<'EOF'
-${{ github.event.issue.body }}
-EOF
-)
+          ${{ github.event.issue.body }}
+          EOF
+          )
             device_type=$(echo "$issue_body" | grep -oP '(?<=\*\*Device Type:\*\* )[^\n]+' | head -1)
             firmware_type=$(echo "$issue_body" | grep -oP '(?<=\*\*Firmware Type:\*\* )[^\n]+' | head -1)
             version=$(echo "$issue_body" | grep -oP '(?<=\*\*Version:\*\* )[^\n]+' | head -1)
