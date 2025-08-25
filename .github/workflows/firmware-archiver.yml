@@ -211,15 +211,22 @@ jobs:
           file_size=$(stat -f%z "$target_path/$filename" 2>/dev/null || stat -c%s "$target_path/$filename")
           echo "Downloaded firmware: $filename (${file_size} bytes)"
           
-          # Add submission timestamp to metadata
+          # Add submission timestamp and issue reference to metadata
           jq --arg timestamp "$(date -u +%Y-%m-%dT%H:%M:%SZ)" \
              --arg filename "$filename" \
              --arg filesize "$file_size" \
-             '. + {archivedAt: $timestamp, archivedFilename: $filename, archivedFilesize: ($filesize | tonumber)}' \
+             --arg issue "${{ steps.extract-metadata.outputs.issue_number }}" \
+             '. + {archivedAt: $timestamp, archivedFilename: $filename, archivedFilesize: ($filesize | tonumber), issueNumber: ($issue | tonumber)}' \
              metadata.json > "$target_path/metadata.json"
           
           echo "download_path=$target_path" >> $GITHUB_OUTPUT
           echo "filename=$filename" >> $GITHUB_OUTPUT
+
+      - name: Update README
+        if: steps.check-existing.outputs.exists == 'false' && steps.download.outputs.download_path
+        run: |
+          node update-readme.js
+          echo "README.md updated with new firmware inventory"
 
       - name: Commit files
         if: steps.check-existing.outputs.exists == 'false' && steps.download.outputs.download_path
@@ -228,13 +235,16 @@ jobs:
           git config --local user.name "GitHub Action"
           
           git add "${{ steps.download.outputs.download_path }}/"
+          git add README.md
           git commit -m "Archive firmware: ${{ steps.extract-metadata.outputs.device_type }} ${{ steps.extract-metadata.outputs.firmware_type }} v${{ steps.extract-metadata.outputs.version }}
 
           - Device: ${{ steps.extract-metadata.outputs.device_type }}
           - Type: ${{ steps.extract-metadata.outputs.firmware_type }}  
           - Version: ${{ steps.extract-metadata.outputs.version }}
           - File: ${{ steps.download.outputs.filename }}
-          - Issue: #${{ steps.extract-metadata.outputs.issue_number }}"
+          - Issue: #${{ steps.extract-metadata.outputs.issue_number }}
+          
+          Updates README.md with firmware inventory"
           
           git push
 
