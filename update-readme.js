@@ -146,10 +146,10 @@ Community firmware archive for Marstek solar/battery devices.
             const translated = fw.translatedDescription.length > 50 ? fw.translatedDescription.substring(0, 50) + '...' : fw.translatedDescription;
             description = `${original.replace(/\n/g, ' ')} <br/> *${translated.replace(/\n/g, ' ')}*`;
           } else if (hasChineseChars) {
-            // Chinese text with inline translate toggle
+            // Chinese text - add simple Google Translate link
             const text = fw.description.length > 60 ? fw.description.substring(0, 60) + '...' : fw.description;
-            const fullText = fw.description.replace(/\n/g, ' ').replace(/'/g, "\\'");
-            description = `<span>${text.replace(/\n/g, ' ')}</span> <a href="#" onclick="translateInline(this, '${fullText}'); return false;" title="Click to translate">🌐</a>`;
+            const translateUrl = `https://translate.google.com/?sl=zh&tl=en&text=${encodeURIComponent(fw.description)}`;
+            description = `${text.replace(/\n/g, ' ')} [🌐](${translateUrl} "Translate to English")`;
           } else {
             // English or other text without translation
             const text = fw.description.length > 80 ? fw.description.substring(0, 80) + '...' : fw.description;
@@ -203,48 +203,6 @@ You can contribute by:
 Each firmware directory contains:
 - Binary firmware file
 - \`metadata.json\` with submission details and checksums
-
-<script>
-async function translateInline(element, text) {
-  if (element.dataset.translated === 'true') {
-    // Show original
-    element.previousElementSibling.textContent = element.dataset.original;
-    element.textContent = '🌐';
-    element.title = 'Click to translate';
-    element.dataset.translated = 'false';
-  } else {
-    // Store original and translate
-    if (!element.dataset.original) {
-      element.dataset.original = element.previousElementSibling.textContent;
-    }
-    
-    element.textContent = '⏳';
-    element.title = 'Translating...';
-    
-    try {
-      const response = await fetch(\`https://api.mymemory.translated.net/get?q=\${encodeURIComponent(text)}&langpair=zh|en\`);
-      const data = await response.json();
-      
-      if (data.responseData && data.responseData.translatedText) {
-        element.previousElementSibling.textContent = data.responseData.translatedText;
-        element.textContent = '🔄';
-        element.title = 'Click to show original';
-        element.dataset.translated = 'true';
-      } else {
-        throw new Error('Translation failed');
-      }
-    } catch (error) {
-      console.error('Translation error:', error);
-      element.textContent = '❌';
-      element.title = 'Translation failed';
-      setTimeout(() => {
-        element.textContent = '🌐';
-        element.title = 'Click to translate';
-      }, 2000);
-    }
-  }
-}
-</script>
 `;
 
   return readme;
