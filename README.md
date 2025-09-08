@@ -22,6 +22,7 @@ Community firmware archive for Marstek solar/battery devices.
 
 | Version | File Size | Added | Download | Issue | Description |
 |---------|-----------|-------|----------|-------|-------------|
+| v216 | 72 KB | Sep 8, 2025 | [📁 20250902100339408038111.bin](firmwares/HMG-50/BMS/216/20250902100339408038111.bin) | [#8](../../issues/8) | 修复低电量SOC跳变问题。 [🌐](https://translate.google.com/?sl=zh&tl=en&text=%E4%BF%AE%E5%A4%8D%E4%BD%8E%E7%94%B5%E9%87%8FSOC%E8%B7%B3%E5%8F%98%E9%97%AE%E9%A2%98%E3%80%82 "Translate to English") |
 | v215 | 72 KB | Aug 25, 2025 | [📁 20250806112046448ef9739.bin](firmwares/HMG-50/BMS/215/20250806112046448ef9739.bin) | - | 满电回差由97调整到99，优化升级稳定性。 [🌐](https://translate.google.com/?sl=zh&tl=en&text=%E6%BB%A1%E7%94%B5%E5%9B%9E%E5%B7%AE%E7%94%B197%E8%B0%83%E6%95%B4%E5%88%B099%EF%BC%8C%E4%BC%98%E5%8C%96%E5%8D%87%E7%BA%A7%E7%A8%B3%E5%AE%9A%E6%80%A7%E3%80%82 "Translate to English") |
 
 #### Control
@@ -32,8 +33,8 @@ Community firmware archive for Marstek solar/battery devices.
 
 ---
 
-**Total firmware files:** 4
-**Last updated:** 8/25/2025, 11:31:13 AM UTC
+**Total firmware files:** 5
+**Last updated:** 9/8/2025, 7:29:29 PM UTC
 
 ## Usage
 

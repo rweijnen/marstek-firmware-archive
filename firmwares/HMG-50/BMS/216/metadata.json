@@ -1,0 +1,48 @@
+{
+  "deviceType": "HMG-50",
+  "firmwareType": "BMS",
+  "version": 216,
+  "url": "https://eu-central-1-s3-common-bucket.s3.dualstack.eu-central-1.amazonaws.com/uploads/ota/20250902/20250902100339408038111.bin",
+  "remark": "修复低电量SOC跳变问题。",
+  "chinese": "修复低电量SOC跳变问题。",
+  "apiResponse": {
+    "code": 1,
+    "show": 0,
+    "msg": "success",
+    "data": {
+      "control": {
+        "edition": 2019,
+        "devicetype": "",
+        "mcu_type": "control",
+        "type": "HMG",
+        "url": "https://eu-central-1-s3-common-bucket.s3.dualstack.eu-central-1.amazonaws.com/uploads/ota/20250806/202508061002136a9386678.bin",
+        "version": 154,
+        "english": "",
+        "chinese": "V154 Optimize system program performance",
+        "japanese": "",
+        "remark": "V154 Optimize system program performance"
+      },
+      "bms": {
+        "edition": 2193,
+        "devicetype": "",
+        "mcu_type": "bms",
+        "type": "HMG-50",
+        "url": "https://eu-central-1-s3-common-bucket.s3.dualstack.eu-central-1.amazonaws.com/uploads/ota/20250902/20250902100339408038111.bin",
+        "version": 216,
+        "english": "",
+        "chinese": "修复低电量SOC跳变问题。",
+        "japanese": "",
+        "remark": "修复低电量SOC跳变问题。"
+      },
+      "mppt": "",
+      "micro": "",
+      "dcdc": "",
+      "bms_pack1": "",
+      "bms_pack2": ""
+    }
+  },
+  "archivedAt": "2025-09-08T19:29:28Z",
+  "archivedFilename": "20250902100339408038111.bin",
+  "archivedFilesize": 73728,
+  "issueNumber": 8
+}
