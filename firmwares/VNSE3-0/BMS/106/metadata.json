@@ -1,0 +1,41 @@
+{
+  "apiResponse": {
+    "code": 1,
+    "data": {
+      "bms": {
+        "chinese": "修复楚能电芯BMS的SOC跳变问题。",
+        "crc": "",
+        "devicetype": "",
+        "edition": 2118,
+        "english": "Make partial optimizations to the user experience.",
+        "is_boot": "N",
+        "is_http": "N",
+        "japanese": "",
+        "mcu_type": "bms",
+        "remark": "Make partial optimizations to the user experience.",
+        "size": null,
+        "type": "VNSE3-0",
+        "url": "https://eu-central-1-s3-common-bucket.s3.dualstack.eu-central-1.amazonaws.com/uploads/ota/20250818/2025081814112994acd7498.bin",
+        "version": 106
+      },
+      "bms_pack1": "",
+      "bms_pack2": "",
+      "control": "",
+      "dcdc": "",
+      "micro": "",
+      "mppt": ""
+    },
+    "msg": "success",
+    "show": 0
+  },
+  "chinese": "修复楚能电芯BMS的SOC跳变问题。",
+  "deviceType": "VNSE3-0",
+  "firmwareType": "BMS",
+  "remark": "Make partial optimizations to the user experience.",
+  "url": "https://eu-central-1-s3-common-bucket.s3.dualstack.eu-central-1.amazonaws.com/uploads/ota/20250818/2025081814112994acd7498.bin",
+  "version": 106,
+  "archivedAt": "2025-10-27T17:09:31Z",
+  "archivedFilename": "2025081814112994acd7498.bin",
+  "archivedFilesize": 92160,
+  "issueNumber": 9
+}

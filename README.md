@@ -31,10 +31,16 @@ Community firmware archive for Marstek solar/battery devices.
 |---------|-----------|-------|----------|-------|-------------|
 | v153 | 222 KB | Aug 25, 2025 | [📁 202505301136007a5b57023.bin](firmwares/HMG-50/Control/153/202505301136007a5b57023.bin) | - | 1、支持对无密码WIFI进行配网功能；2、优化一些已知问题 [🌐](https://translate.google.com/?sl=zh&tl=en&text=1%E3%80%81%E6%94%AF%E6%8C%81%E5%AF%B9%E6%97%A0%E5%AF%86%E7%A0%81WIFI%E8%BF%9B%E8%A1%8C%E9%85%8D%E7%BD%91%E5%8A%9F%E8%83%BD%EF%BC%9B2%E3%80%81%E4%BC%98%E5%8C%96%E4%B8%80%E4%BA%9B%E5%B7%B2%E7%9F%A5%E9%97%AE%E9%A2%98 "Translate to English") |
 
+### VNSE3-0
+
+| Version | File Size | Added | Download | Issue | Description |
+|---------|-----------|-------|----------|-------|-------------|
+| v106 | 90 KB | Oct 27, 2025 | [📁 2025081814112994acd7498.bin](firmwares/VNSE3-0/BMS/106/2025081814112994acd7498.bin) | [#9](../../issues/9) | 修复楚能电芯BMS的SOC跳变问题。 [🌐](https://translate.google.com/?sl=zh&tl=en&text=%E4%BF%AE%E5%A4%8D%E6%A5%9A%E8%83%BD%E7%94%B5%E8%8A%AFBMS%E7%9A%84SOC%E8%B7%B3%E5%8F%98%E9%97%AE%E9%A2%98%E3%80%82 "Translate to English") |
+
 ---
 
-**Total firmware files:** 5
-**Last updated:** 9/8/2025, 7:29:29 PM UTC
+**Total firmware files:** 6
+**Last updated:** 10/27/2025, 5:09:31 PM UTC
 
 ## Usage
 
