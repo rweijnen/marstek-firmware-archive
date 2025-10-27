@@ -1,0 +1,28 @@
+{
+  "apiResponse": {
+    "chinese": "优化SML读值",
+    "code": "1",
+    "content": "English",
+    "crc": "",
+    "data": "https://eu-central-1-s3-common-bucket.s3.dualstack.eu-central-1.amazonaws.com/uploads/ota/20250714/2025071415581563c0d7425.bin",
+    "english": "优化SML读值",
+    "is_boot": "N",
+    "is_http": "N",
+    "japanese": "",
+    "newVerion": "118",
+    "otaWay": "otaSelfBoot",
+    "remark": "",
+    "size": null
+  },
+  "chinese": "优化SML读值",
+  "deviceName": "P1 meter",
+  "deviceType": "HME-3",
+  "english": "优化SML读值",
+  "otaWay": "otaSelfBoot",
+  "url": "https://eu-central-1-s3-common-bucket.s3.dualstack.eu-central-1.amazonaws.com/uploads/ota/20250714/2025071415581563c0d7425.bin",
+  "version": "118",
+  "archivedAt": "2025-10-27T17:11:51Z",
+  "archivedFilename": "2025071415581563c0d7425.bin",
+  "archivedFilesize": 73728,
+  "issueNumber": 11
+}

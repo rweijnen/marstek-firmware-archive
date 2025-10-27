@@ -8,6 +8,7 @@ Community firmware archive for Marstek solar/battery devices.
 
 | Version | File Size | Added | Download | Issue | Description |
 |---------|-----------|-------|----------|-------|-------------|
+| v118 | 72 KB | Oct 27, 2025 | [📁 2025071415581563c0d7425.bin](firmwares/HME-3/118/2025071415581563c0d7425.bin) | [#11](../../issues/11) | 优化SML读值 [🌐](https://translate.google.com/?sl=zh&tl=en&text=%E4%BC%98%E5%8C%96SML%E8%AF%BB%E5%80%BC "Translate to English") |
 | v117 | 72 KB | Aug 25, 2025 | [📁 20250702110345eebe62348.bin](firmwares/HME-3/117/20250702110345eebe62348.bin) | [#7](../../issues/7) | 1、优化了UDP接收和重启优化 2、加入蓝牙升级移远模组命令 3、CT3修复7E1配置bug，优化了SML协议解析，以及... [🌐](https://translate.google.com/?sl=zh&tl=en&text=1%E3%80%81%E4%BC%98%E5%8C%96%E4%BA%86UDP%E6%8E%A5%E6%94%B6%E5%92%8C%E9%87%8D%E5%90%AF%E4%BC%98%E5%8C%96%0A2%E3%80%81%E5%8A%A0%E5%85%A5%E8%93%9D%E7%89%99%E5%8D%87%E7%BA%A7%E7%A7%BB%E8%BF%9C%E6%A8%A1%E7%BB%84%E5%91%BD%E4%BB%A4%0A3%E3%80%81CT3%E4%BF%AE%E5%A4%8D7E1%E9%85%8D%E7%BD%AEbug%EF%BC%8C%E4%BC%98%E5%8C%96%E4%BA%86SML%E5%8D%8F%E8%AE%AE%E8%A7%A3%E6%9E%90%EF%BC%8C%E4%BB%A5%E5%8F%8A%E5%8A%A0%E5%85%A5SML%E5%8D%8F%E8%AE%AE%E6%89%93%E5%8D%B0%E5%8A%9F%E8%83%BD "Translate to English") |
 
 ### HME-4
@@ -40,8 +41,8 @@ Community firmware archive for Marstek solar/battery devices.
 
 ---
 
-**Total firmware files:** 7
-**Last updated:** 10/27/2025, 5:10:00 PM UTC
+**Total firmware files:** 8
+**Last updated:** 10/27/2025, 5:11:51 PM UTC
 
 ## Usage
 
