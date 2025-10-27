@@ -1,0 +1,56 @@
+{
+  "deviceType": "HMG-50",
+  "firmwareType": "Control",
+  "version": 155,
+  "url": "https://eu-central-1-s3-common-bucket.s3.dualstack.eu-central-1.amazonaws.com/uploads/ota/20250916/202509161548003ff722863.bin",
+  "remark": "新增充放电时累计功能；新增支持下发并网标准",
+  "chinese": "新增充放电时累计功能；新增支持下发并网标准",
+  "apiResponse": {
+    "code": 1,
+    "show": 0,
+    "msg": "success",
+    "data": {
+      "control": {
+        "edition": 2284,
+        "devicetype": "",
+        "mcu_type": "control",
+        "type": "HMG",
+        "url": "https://eu-central-1-s3-common-bucket.s3.dualstack.eu-central-1.amazonaws.com/uploads/ota/20250916/202509161548003ff722863.bin",
+        "version": 155,
+        "english": "",
+        "chinese": "新增充放电时累计功能；新增支持下发并网标准",
+        "japanese": "",
+        "remark": "新增充放电时累计功能；新增支持下发并网标准",
+        "is_boot": "N",
+        "is_http": "N",
+        "crc": "",
+        "size": null
+      },
+      "bms": {
+        "edition": 2193,
+        "devicetype": "",
+        "mcu_type": "bms",
+        "type": "HMG-50",
+        "url": "https://eu-central-1-s3-common-bucket.s3.dualstack.eu-central-1.amazonaws.com/uploads/ota/20250902/20250902100339408038111.bin",
+        "version": 216,
+        "english": "",
+        "chinese": "修复低电量SOC跳变问题。",
+        "japanese": "",
+        "remark": "修复低电量SOC跳变问题。",
+        "is_boot": "N",
+        "is_http": "N",
+        "crc": "",
+        "size": null
+      },
+      "mppt": "",
+      "micro": "",
+      "dcdc": "",
+      "bms_pack1": "",
+      "bms_pack2": ""
+    }
+  },
+  "archivedAt": "2025-10-27T17:10:00Z",
+  "archivedFilename": "202509161548003ff722863.bin",
+  "archivedFilesize": 237568,
+  "issueNumber": 10
+}
