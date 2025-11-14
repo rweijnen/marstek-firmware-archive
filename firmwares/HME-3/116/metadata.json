@@ -1,0 +1,27 @@
+{
+  "apiResponse": {
+    "chinese": "1、BLE和MQTT添加ABC3相和合相数据Now数据\n2、蓝牙增加无密码WIFI配置\n3、使用新Mqtt服务器证书加密\n4、UDP协议增加电量数据",
+    "code": "1",
+    "content": "English",
+    "data": "https://eu-central-1-s3-common-bucket.s3.dualstack.eu-central-1.amazonaws.com/uploads/ota/20250610/20250610173327b6ce85859.bin",
+    "english": "",
+    "is_boot": "N",
+    "is_http": "N",
+    "japanese": "",
+    "newVerion": "116",
+    "otaWay": "otaSelfBoot",
+    "remark": "",
+    "size": null
+  },
+  "chinese": "1、BLE和MQTT添加ABC3相和合相数据Now数据\n2、蓝牙增加无密码WIFI配置\n3、使用新Mqtt服务器证书加密\n4、UDP协议增加电量数据",
+  "deviceName": "MTCT",
+  "deviceType": "HME-3",
+  "english": "",
+  "otaWay": "otaSelfBoot",
+  "url": "https://eu-central-1-s3-common-bucket.s3.dualstack.eu-central-1.amazonaws.com/uploads/ota/20250610/20250610173327b6ce85859.bin",
+  "version": "116",
+  "archivedAt": "2025-11-14T14:21:41Z",
+  "archivedFilename": "20250610173327b6ce85859.bin",
+  "archivedFilesize": 69632,
+  "issueNumber": 13
+}

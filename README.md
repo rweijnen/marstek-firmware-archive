@@ -10,6 +10,7 @@ Community firmware archive for Marstek solar/battery devices.
 |---------|-----------|-------|----------|-------|-------------|
 | v118 | 72 KB | Oct 27, 2025 | [📁 2025071415581563c0d7425.bin](firmwares/HME-3/118/2025071415581563c0d7425.bin) | [#11](../../issues/11) | 优化SML读值 [🌐](https://translate.google.com/?sl=zh&tl=en&text=%E4%BC%98%E5%8C%96SML%E8%AF%BB%E5%80%BC "Translate to English") |
 | v117 | 72 KB | Aug 25, 2025 | [📁 20250702110345eebe62348.bin](firmwares/HME-3/117/20250702110345eebe62348.bin) | [#7](../../issues/7) | 1、优化了UDP接收和重启优化 2、加入蓝牙升级移远模组命令 3、CT3修复7E1配置bug，优化了SML协议解析，以及... [🌐](https://translate.google.com/?sl=zh&tl=en&text=1%E3%80%81%E4%BC%98%E5%8C%96%E4%BA%86UDP%E6%8E%A5%E6%94%B6%E5%92%8C%E9%87%8D%E5%90%AF%E4%BC%98%E5%8C%96%0A2%E3%80%81%E5%8A%A0%E5%85%A5%E8%93%9D%E7%89%99%E5%8D%87%E7%BA%A7%E7%A7%BB%E8%BF%9C%E6%A8%A1%E7%BB%84%E5%91%BD%E4%BB%A4%0A3%E3%80%81CT3%E4%BF%AE%E5%A4%8D7E1%E9%85%8D%E7%BD%AEbug%EF%BC%8C%E4%BC%98%E5%8C%96%E4%BA%86SML%E5%8D%8F%E8%AE%AE%E8%A7%A3%E6%9E%90%EF%BC%8C%E4%BB%A5%E5%8F%8A%E5%8A%A0%E5%85%A5SML%E5%8D%8F%E8%AE%AE%E6%89%93%E5%8D%B0%E5%8A%9F%E8%83%BD "Translate to English") |
+| v116 | 68 KB | Nov 14, 2025 | [📁 20250610173327b6ce85859.bin](firmwares/HME-3/116/20250610173327b6ce85859.bin) | [#13](../../issues/13) | 1、BLE和MQTT添加ABC3相和合相数据Now数据 2、蓝牙增加无密码WIFI配置 3、使用新Mqtt服务器证书加密... [🌐](https://translate.google.com/?sl=zh&tl=en&text=1%E3%80%81BLE%E5%92%8CMQTT%E6%B7%BB%E5%8A%A0ABC3%E7%9B%B8%E5%92%8C%E5%90%88%E7%9B%B8%E6%95%B0%E6%8D%AENow%E6%95%B0%E6%8D%AE%0A2%E3%80%81%E8%93%9D%E7%89%99%E5%A2%9E%E5%8A%A0%E6%97%A0%E5%AF%86%E7%A0%81WIFI%E9%85%8D%E7%BD%AE%0A3%E3%80%81%E4%BD%BF%E7%94%A8%E6%96%B0Mqtt%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%AF%81%E4%B9%A6%E5%8A%A0%E5%AF%86%0A4%E3%80%81UDP%E5%8D%8F%E8%AE%AE%E5%A2%9E%E5%8A%A0%E7%94%B5%E9%87%8F%E6%95%B0%E6%8D%AE "Translate to English") |
 
 ### HME-4
 
@@ -41,8 +42,8 @@ Community firmware archive for Marstek solar/battery devices.
 
 ---
 
-**Total firmware files:** 8
-**Last updated:** 10/27/2025, 5:11:51 PM UTC
+**Total firmware files:** 9
+**Last updated:** 11/14/2025, 2:21:41 PM UTC
 
 ## Usage
 
