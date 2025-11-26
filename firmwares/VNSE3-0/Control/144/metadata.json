@@ -1,0 +1,41 @@
+{
+  "deviceType": "VNSE3-0",
+  "firmwareType": "Control",
+  "version": 144,
+  "url": "https://eu-central-1-s3-common-bucket.s3.dualstack.eu-central-1.amazonaws.com/uploads/ota/20251118/20251118161530cc2d80857.bin",
+  "remark": "新增功能： \n1.防逆流功率基线设定 允许用户自行设定并网口功率，并以该功率值稳定地从电网取/馈电 2.对四款新增电表的适配\n 荷兰读表器：SMR-P1 德国读表器：SMR-IR 法国读表器：\nSMR-TIC 新版CT002：TPM2-100CT \n3.DOD功能设定 允许客户自行设定设备SOC使用范围，可设置工作区间为[(12%~70%) - 100%]\n 建议高纬度寒冷地带的客户适当提高SOC工作范围以延长电池寿命 \n4.新增设备蓝牙关闭功能 可通过服务器或APP关闭设备蓝牙\n 5.XID/VID连接",
+  "chinese": "新增功能： 1.防逆流功率基线设定 允许用户自行设定并网口功率，并以该功率值稳定地从电网取/馈电 2.对四款新增电表的适配 荷兰读表器：SMR-P1 德国读表器：SMR-IR 法国读表器：SMR-TIC 新版CT002：TPM2-100CT 3.DOD功能设定 允许客户自行设定设备SOC使用范围，可设置工作区间为[(12%~70%) - 100%] 建议高纬度寒冷地带的客户适当提高SOC工作范围以延长电池寿命 4.新增设备蓝牙关闭功能 可通过服务器或APP关闭设备蓝牙 5.XID/VID连接第三方服务器 可通过APP设置连接第三方服务器",
+  "apiResponse": {
+    "code": 1,
+    "show": 0,
+    "msg": "success",
+    "data": {
+      "control": {
+        "edition": 2596,
+        "devicetype": "",
+        "mcu_type": "control",
+        "type": "VNSE3-0",
+        "url": "https://eu-central-1-s3-common-bucket.s3.dualstack.eu-central-1.amazonaws.com/uploads/ota/20251118/20251118161530cc2d80857.bin",
+        "version": 144,
+        "english": "New Features\n\n1. Anti-Reverse Power Baseline Setting\n   Users can manually set a baseline power value for the grid port.\n   The system will stabilize power flow so that the device consistently\n   imports or exports power according to the configured value.\n\n2. Support for Four New Meter Types\n   - Netherlands P1 Reader: SMR-P1\n   - Germany Infrared Reader: SMR-IR\n   - France TIC Reader: SMR-TIC\n   - New CT Meter: TPM2-100CT\n\n3. DOD (Depth of Discharge) Configuration\n   Users can customize the SOC operating range.\n   The allowable working range is [(12%–70%) – 100%].\n   For cold, high-latitude regions, it is recommended to increase the\n   SOC range to improve battery longevity.\n\n4. Bluetooth Disable Function\n   Bluetooth can now be disabled via the server or mobile app.\n\n5. XID/VID Third-Party Server Connection\n   Users can configure XID/VID settings through the mobile app to enable\n   connection to third-party servers.",
+        "chinese": "新增功能： 1.防逆流功率基线设定 允许用户自行设定并网口功率，并以该功率值稳定地从电网取/馈电 2.对四款新增电表的适配 荷兰读表器：SMR-P1 德国读表器：SMR-IR 法国读表器：SMR-TIC 新版CT002：TPM2-100CT 3.DOD功能设定 允许客户自行设定设备SOC使用范围，可设置工作区间为[(12%~70%) - 100%] 建议高纬度寒冷地带的客户适当提高SOC工作范围以延长电池寿命 4.新增设备蓝牙关闭功能 可通过服务器或APP关闭设备蓝牙 5.XID/VID连接第三方服务器 可通过APP设置连接第三方服务器",
+        "japanese": "",
+        "remark": "新增功能： \n1.防逆流功率基线设定 允许用户自行设定并网口功率，并以该功率值稳定地从电网取/馈电 2.对四款新增电表的适配\n 荷兰读表器：SMR-P1 德国读表器：SMR-IR 法国读表器：\nSMR-TIC 新版CT002：TPM2-100CT \n3.DOD功能设定 允许客户自行设定设备SOC使用范围，可设置工作区间为[(12%~70%) - 100%]\n 建议高纬度寒冷地带的客户适当提高SOC工作范围以延长电池寿命 \n4.新增设备蓝牙关闭功能 可通过服务器或APP关闭设备蓝牙\n 5.XID/VID连接",
+        "is_boot": "N",
+        "is_http": "Y",
+        "crc": "54,170",
+        "size": 354304
+      },
+      "bms": "",
+      "mppt": "",
+      "micro": "",
+      "dcdc": "",
+      "bms_pack1": "",
+      "bms_pack2": ""
+    }
+  },
+  "archivedAt": "2025-11-26T16:29:19Z",
+  "archivedFilename": "20251118161530cc2d80857.bin",
+  "archivedFilesize": 354304,
+  "issueNumber": 14
+}

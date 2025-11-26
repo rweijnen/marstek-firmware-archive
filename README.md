@@ -36,14 +36,22 @@ Community firmware archive for Marstek solar/battery devices.
 
 ### VNSE3-0
 
+#### BMS
+
 | Version | File Size | Added | Download | Issue | Description |
 |---------|-----------|-------|----------|-------|-------------|
 | v106 | 90 KB | Oct 27, 2025 | [📁 2025081814112994acd7498.bin](firmwares/VNSE3-0/BMS/106/2025081814112994acd7498.bin) | [#9](../../issues/9) | 修复楚能电芯BMS的SOC跳变问题。 [🌐](https://translate.google.com/?sl=zh&tl=en&text=%E4%BF%AE%E5%A4%8D%E6%A5%9A%E8%83%BD%E7%94%B5%E8%8A%AFBMS%E7%9A%84SOC%E8%B7%B3%E5%8F%98%E9%97%AE%E9%A2%98%E3%80%82 "Translate to English") |
 
+#### Control
+
+| Version | File Size | Added | Download | Issue | Description |
+|---------|-----------|-------|----------|-------|-------------|
+| v144 | 346 KB | Nov 26, 2025 | [📁 20251118161530cc2d80857.bin](firmwares/VNSE3-0/Control/144/20251118161530cc2d80857.bin) | [#14](../../issues/14) | 新增功能： 1.防逆流功率基线设定 允许用户自行设定并网口功率，并以该功率值稳定地从电网取/馈电 2.对四款新增电表的适... [🌐](https://translate.google.com/?sl=zh&tl=en&text=%E6%96%B0%E5%A2%9E%E5%8A%9F%E8%83%BD%EF%BC%9A%201.%E9%98%B2%E9%80%86%E6%B5%81%E5%8A%9F%E7%8E%87%E5%9F%BA%E7%BA%BF%E8%AE%BE%E5%AE%9A%20%E5%85%81%E8%AE%B8%E7%94%A8%E6%88%B7%E8%87%AA%E8%A1%8C%E8%AE%BE%E5%AE%9A%E5%B9%B6%E7%BD%91%E5%8F%A3%E5%8A%9F%E7%8E%87%EF%BC%8C%E5%B9%B6%E4%BB%A5%E8%AF%A5%E5%8A%9F%E7%8E%87%E5%80%BC%E7%A8%B3%E5%AE%9A%E5%9C%B0%E4%BB%8E%E7%94%B5%E7%BD%91%E5%8F%96%2F%E9%A6%88%E7%94%B5%202.%E5%AF%B9%E5%9B%9B%E6%AC%BE%E6%96%B0%E5%A2%9E%E7%94%B5%E8%A1%A8%E7%9A%84%E9%80%82%E9%85%8D%20%E8%8D%B7%E5%85%B0%E8%AF%BB%E8%A1%A8%E5%99%A8%EF%BC%9ASMR-P1%20%E5%BE%B7%E5%9B%BD%E8%AF%BB%E8%A1%A8%E5%99%A8%EF%BC%9ASMR-IR%20%E6%B3%95%E5%9B%BD%E8%AF%BB%E8%A1%A8%E5%99%A8%EF%BC%9ASMR-TIC%20%E6%96%B0%E7%89%88CT002%EF%BC%9ATPM2-100CT%203.DOD%E5%8A%9F%E8%83%BD%E8%AE%BE%E5%AE%9A%20%E5%85%81%E8%AE%B8%E5%AE%A2%E6%88%B7%E8%87%AA%E8%A1%8C%E8%AE%BE%E5%AE%9A%E8%AE%BE%E5%A4%87SOC%E4%BD%BF%E7%94%A8%E8%8C%83%E5%9B%B4%EF%BC%8C%E5%8F%AF%E8%AE%BE%E7%BD%AE%E5%B7%A5%E4%BD%9C%E5%8C%BA%E9%97%B4%E4%B8%BA%5B(12%25~70%25)%20-%20100%25%5D%20%E5%BB%BA%E8%AE%AE%E9%AB%98%E7%BA%AC%E5%BA%A6%E5%AF%92%E5%86%B7%E5%9C%B0%E5%B8%A6%E7%9A%84%E5%AE%A2%E6%88%B7%E9%80%82%E5%BD%93%E6%8F%90%E9%AB%98SOC%E5%B7%A5%E4%BD%9C%E8%8C%83%E5%9B%B4%E4%BB%A5%E5%BB%B6%E9%95%BF%E7%94%B5%E6%B1%A0%E5%AF%BF%E5%91%BD%204.%E6%96%B0%E5%A2%9E%E8%AE%BE%E5%A4%87%E8%93%9D%E7%89%99%E5%85%B3%E9%97%AD%E5%8A%9F%E8%83%BD%20%E5%8F%AF%E9%80%9A%E8%BF%87%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%88%96APP%E5%85%B3%E9%97%AD%E8%AE%BE%E5%A4%87%E8%93%9D%E7%89%99%205.XID%2FVID%E8%BF%9E%E6%8E%A5%E7%AC%AC%E4%B8%89%E6%96%B9%E6%9C%8D%E5%8A%A1%E5%99%A8%20%E5%8F%AF%E9%80%9A%E8%BF%87APP%E8%AE%BE%E7%BD%AE%E8%BF%9E%E6%8E%A5%E7%AC%AC%E4%B8%89%E6%96%B9%E6%9C%8D%E5%8A%A1%E5%99%A8 "Translate to English") |
+
 ---
 
-**Total firmware files:** 9
-**Last updated:** 11/14/2025, 2:21:41 PM UTC
+**Total firmware files:** 10
+**Last updated:** 11/26/2025, 4:29:19 PM UTC
 
 ## Usage
 
