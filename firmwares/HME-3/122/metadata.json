@@ -1,0 +1,28 @@
+{
+  "deviceType": "HME-3",
+  "deviceName": "P1 meter",
+  "version": "122",
+  "url": "https://eu-central-1-s3-common-bucket.s3.dualstack.eu-central-1.amazonaws.com/uploads/ota/20250915/2025091516373099b077494.bin",
+  "otaWay": "otaSelfBoot",
+  "chinese": "udp协议v4 修复udp复位bug",
+  "english": "",
+  "apiResponse": {
+    "code": "1",
+    "content": "English",
+    "newVerion": "122",
+    "otaWay": "otaSelfBoot",
+    "data": "https://eu-central-1-s3-common-bucket.s3.dualstack.eu-central-1.amazonaws.com/uploads/ota/20250915/2025091516373099b077494.bin",
+    "english": "",
+    "chinese": "udp协议v4 修复udp复位bug",
+    "japanese": "",
+    "remark": "udp协议v4 修复udp复位bug",
+    "is_boot": "N",
+    "is_http": "N",
+    "size": null,
+    "crc": ""
+  },
+  "archivedAt": "2025-12-01T15:39:41Z",
+  "archivedFilename": "2025091516373099b077494.bin",
+  "archivedFilesize": 77824,
+  "issueNumber": 15
+}
