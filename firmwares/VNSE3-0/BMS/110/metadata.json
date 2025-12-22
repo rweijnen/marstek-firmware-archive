@@ -1,0 +1,56 @@
+{
+  "deviceType": "VNSE3-0",
+  "firmwareType": "BMS",
+  "version": 110,
+  "url": "https://static-eu.marstekenergy.com/uploads/ota/20251203/202512031001144fcbf8852.bin",
+  "remark": "109固件重传",
+  "chinese": "109固件重传",
+  "apiResponse": {
+    "code": 1,
+    "show": 0,
+    "msg": "success",
+    "data": {
+      "control": "",
+      "bms": {
+        "edition": 2663,
+        "devicetype": "",
+        "mcu_type": "bms",
+        "type": "VNSE3-0",
+        "url": "https://static-eu.marstekenergy.com/uploads/ota/20251203/202512031001144fcbf8852.bin",
+        "version": 110,
+        "english": "",
+        "chinese": "109固件重传",
+        "japanese": "",
+        "remark": "109固件重传",
+        "is_boot": "N",
+        "is_http": "Y",
+        "crc": "653",
+        "size": 91136
+      },
+      "mppt": "",
+      "micro": {
+        "edition": 2649,
+        "devicetype": "",
+        "mcu_type": "micro",
+        "type": "VNSE3-0",
+        "url": "https://eu-central-1-s3-common-bucket.s3.dualstack.eu-central-1.amazonaws.com/uploads/ota/20251128/20251128103443b389c9748.bin",
+        "version": 116,
+        "english": "",
+        "chinese": "优化设备长时间静置之后电池严重亏电导致无法强充问题",
+        "japanese": "",
+        "remark": "优化设备长时间静置之后电池严重亏电导致无法强充问题",
+        "is_boot": "N",
+        "is_http": "Y",
+        "crc": "33526",
+        "size": 117760
+      },
+      "dcdc": "",
+      "bms_pack1": "",
+      "bms_pack2": ""
+    }
+  },
+  "archivedAt": "2025-12-22T19:56:00Z",
+  "archivedFilename": "202512031001144fcbf8852.bin",
+  "archivedFilesize": 91136,
+  "issueNumber": 17
+}

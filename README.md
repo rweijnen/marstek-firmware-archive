@@ -41,6 +41,7 @@ Community firmware archive for Marstek solar/battery devices.
 
 | Version | File Size | Added | Download | Issue | Description |
 |---------|-----------|-------|----------|-------|-------------|
+| v110 | 89 KB | Dec 22, 2025 | [📁 202512031001144fcbf8852.bin](firmwares/VNSE3-0/BMS/110/202512031001144fcbf8852.bin) | [#17](../../issues/17) | 109固件重传 [🌐](https://translate.google.com/?sl=zh&tl=en&text=109%E5%9B%BA%E4%BB%B6%E9%87%8D%E4%BC%A0 "Translate to English") |
 | v106 | 90 KB | Oct 27, 2025 | [📁 2025081814112994acd7498.bin](firmwares/VNSE3-0/BMS/106/2025081814112994acd7498.bin) | [#9](../../issues/9) | 修复楚能电芯BMS的SOC跳变问题。 [🌐](https://translate.google.com/?sl=zh&tl=en&text=%E4%BF%AE%E5%A4%8D%E6%A5%9A%E8%83%BD%E7%94%B5%E8%8A%AFBMS%E7%9A%84SOC%E8%B7%B3%E5%8F%98%E9%97%AE%E9%A2%98%E3%80%82 "Translate to English") |
 
 #### Control
@@ -51,8 +52,8 @@ Community firmware archive for Marstek solar/battery devices.
 
 ---
 
-**Total firmware files:** 11
-**Last updated:** 12/1/2025, 3:39:41 PM UTC
+**Total firmware files:** 12
+**Last updated:** 12/22/2025, 7:56:00 PM UTC
 
 ## Usage
 
