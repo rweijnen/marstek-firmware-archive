@@ -1,0 +1,42 @@
+{
+  "apiResponse": {
+    "code": 1,
+    "data": {
+      "bms": "",
+      "bms_pack1": "",
+      "bms_pack2": "",
+      "control": {
+        "chinese": "1、新增数据备份功能\n2、优化电表断连检测以及相位检测\n3、修复以太网模式下MQTT连接标志位显示异常\n4、优化MQTT断网复位后连接稳定性\n5、修复Dod 二次设置后不能放电的问题\n6、优化第三方服务器连接，取消超时清除功能",
+        "crc": "9090",
+        "devicetype": "",
+        "edition": 3080,
+        "english": "",
+        "force_update": "N",
+        "is_boot": "N",
+        "is_http": "Y",
+        "japanese": "",
+        "mcu_type": "control",
+        "remark": "1、新增数据备份功能\n2、优化电表断连检测以及相位检测\n3、修复以太网模式下MQTT连接标志位显示异常\n4、优化MQTT断网复位后连接稳定性\n5、修复Dod 二次设置后不能放电的问题\n6、优化第三方服务器连接，取消超时清除功能",
+        "size": 366592,
+        "type": "VNSE3-0",
+        "url": "https://eu-central-1-s3-common-bucket.s3.dualstack.eu-central-1.amazonaws.com/uploads/ota/20260331/VNSEE3-0_app_0148_0331_093751.bin",
+        "version": 148
+      },
+      "dcdc": "",
+      "micro": "",
+      "mppt": ""
+    },
+    "msg": "success",
+    "show": 0
+  },
+  "chinese": "1、新增数据备份功能\n2、优化电表断连检测以及相位检测\n3、修复以太网模式下MQTT连接标志位显示异常\n4、优化MQTT断网复位后连接稳定性\n5、修复Dod 二次设置后不能放电的问题\n6、优化第三方服务器连接，取消超时清除功能",
+  "deviceType": "VNSE3-0",
+  "firmwareType": "Control",
+  "remark": "1、新增数据备份功能\n2、优化电表断连检测以及相位检测\n3、修复以太网模式下MQTT连接标志位显示异常\n4、优化MQTT断网复位后连接稳定性\n5、修复Dod 二次设置后不能放电的问题\n6、优化第三方服务器连接，取消超时清除功能",
+  "url": "https://eu-central-1-s3-common-bucket.s3.dualstack.eu-central-1.amazonaws.com/uploads/ota/20260331/VNSEE3-0_app_0148_0331_093751.bin",
+  "version": 148,
+  "archivedAt": "2026-04-19T21:27:39Z",
+  "archivedFilename": "VNSEE3-0_app_0148_0331_093751.bin",
+  "archivedFilesize": 366592,
+  "issueNumber": 24
+}
