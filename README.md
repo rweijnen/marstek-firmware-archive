@@ -43,6 +43,7 @@ Community firmware archive for Marstek solar/battery devices.
 | Version | File Size | Added | Download | Issue | Description |
 |---------|-----------|-------|----------|-------|-------------|
 | v113 | 95 KB | Apr 16, 2026 | [📁 Ac3.0BmsAPP_V113_ota_175955.bin](firmwares/VNSE3-0/BMS/113/Ac3.0BmsAPP_V113_ota_175955.bin) | [#22](../../issues/22) | 1.安时积分修改为在定时器中断中用逆变器电流进行 2.增加休眠时间计算 [🌐](https://translate.google.com/?sl=zh&tl=en&text=1.%E5%AE%89%E6%97%B6%E7%A7%AF%E5%88%86%E4%BF%AE%E6%94%B9%E4%B8%BA%E5%9C%A8%E5%AE%9A%E6%97%B6%E5%99%A8%E4%B8%AD%E6%96%AD%E4%B8%AD%E7%94%A8%E9%80%86%E5%8F%98%E5%99%A8%E7%94%B5%E6%B5%81%E8%BF%9B%E8%A1%8C%0A2.%E5%A2%9E%E5%8A%A0%E4%BC%91%E7%9C%A0%E6%97%B6%E9%97%B4%E8%AE%A1%E7%AE%97 "Translate to English") |
+| v112 | 93 KB | Jul 7, 2026 | [📁 20260121113157833696278.bin](firmwares/VNSE3-0/BMS/112/20260121113157833696278.bin) | [#27](../../issues/27) | 充放电管外部受控，需与vns117、ems147适配 [🌐](https://translate.google.com/?sl=zh&tl=en&text=%E5%85%85%E6%94%BE%E7%94%B5%E7%AE%A1%E5%A4%96%E9%83%A8%E5%8F%97%E6%8E%A7%EF%BC%8C%E9%9C%80%E4%B8%8Evns117%E3%80%81ems147%E9%80%82%E9%85%8D "Translate to English") |
 | v110 | 89 KB | Dec 22, 2025 | [📁 202512031001144fcbf8852.bin](firmwares/VNSE3-0/BMS/110/202512031001144fcbf8852.bin) | [#17](../../issues/17) | 109固件重传 [🌐](https://translate.google.com/?sl=zh&tl=en&text=109%E5%9B%BA%E4%BB%B6%E9%87%8D%E4%BC%A0 "Translate to English") |
 | v106 | 90 KB | Oct 27, 2025 | [📁 2025081814112994acd7498.bin](firmwares/VNSE3-0/BMS/106/2025081814112994acd7498.bin) | [#9](../../issues/9) | 修复楚能电芯BMS的SOC跳变问题。 [🌐](https://translate.google.com/?sl=zh&tl=en&text=%E4%BF%AE%E5%A4%8D%E6%A5%9A%E8%83%BD%E7%94%B5%E8%8A%AFBMS%E7%9A%84SOC%E8%B7%B3%E5%8F%98%E9%97%AE%E9%A2%98%E3%80%82 "Translate to English") |
 
@@ -56,8 +57,8 @@ Community firmware archive for Marstek solar/battery devices.
 
 ---
 
-**Total firmware files:** 16
-**Last updated:** 6/23/2026, 7:18:19 AM UTC
+**Total firmware files:** 17
+**Last updated:** 7/7/2026, 6:46:21 PM UTC
 
 ## Usage
 
