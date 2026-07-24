@@ -12,6 +12,14 @@ on:
         required: true
         type: string
 
+# Each submission triggers this workflow twice (repository_dispatch + issues:opened)
+# for the same issue. Serialize per-issue so the two runs don't race to git push the
+# same files (which caused add/add merge conflicts). The second run finds the firmware
+# already archived and exits cleanly instead of failing.
+concurrency:
+  group: firmware-archiver-${{ github.event.issue.number || github.event.client_payload.issue_number || github.event.inputs.issue_number }}
+  cancel-in-progress: false
+
 jobs:
   process-firmware-submission:
     runs-on: ubuntu-latest
