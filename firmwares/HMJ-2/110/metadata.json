@@ -1,0 +1,18 @@
+{
+  "deviceType": "HMJ-2",
+  "deviceName": "HM_B2500_3e71",
+  "version": "110",
+  "url": "https://eu-central-1-s3-common-bucket.s3.dualstack.eu-central-1.amazonaws.com/uploads/ota/20250523/20250523160631745d66082.bin",
+  "otaWay": "otaSelfBoot",
+  "apiResponse": {
+    "code": "1",
+    "content": "Fix some bugs!",
+    "newVerion": "110",
+    "data": "https://eu-central-1-s3-common-bucket.s3.dualstack.eu-central-1.amazonaws.com/uploads/ota/20250523/20250523160631745d66082.bin",
+    "otaWay": "otaSelfBoot"
+  },
+  "archivedAt": "2026-07-24T16:01:05Z",
+  "archivedFilename": "20250523160631745d66082.bin",
+  "archivedFilesize": 149504,
+  "issueNumber": 29
+}

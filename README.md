@@ -36,6 +36,12 @@ Community firmware archive for Marstek solar/battery devices.
 | v155 | 232 KB | Oct 27, 2025 | [📁 202509161548003ff722863.bin](firmwares/HMG-50/Control/155/202509161548003ff722863.bin) | [#10](../../issues/10) | 新增充放电时累计功能；新增支持下发并网标准 [🌐](https://translate.google.com/?sl=zh&tl=en&text=%E6%96%B0%E5%A2%9E%E5%85%85%E6%94%BE%E7%94%B5%E6%97%B6%E7%B4%AF%E8%AE%A1%E5%8A%9F%E8%83%BD%EF%BC%9B%E6%96%B0%E5%A2%9E%E6%94%AF%E6%8C%81%E4%B8%8B%E5%8F%91%E5%B9%B6%E7%BD%91%E6%A0%87%E5%87%86 "Translate to English") |
 | v153 | 222 KB | Aug 25, 2025 | [📁 202505301136007a5b57023.bin](firmwares/HMG-50/Control/153/202505301136007a5b57023.bin) | - | 1、支持对无密码WIFI进行配网功能；2、优化一些已知问题 [🌐](https://translate.google.com/?sl=zh&tl=en&text=1%E3%80%81%E6%94%AF%E6%8C%81%E5%AF%B9%E6%97%A0%E5%AF%86%E7%A0%81WIFI%E8%BF%9B%E8%A1%8C%E9%85%8D%E7%BD%91%E5%8A%9F%E8%83%BD%EF%BC%9B2%E3%80%81%E4%BC%98%E5%8C%96%E4%B8%80%E4%BA%9B%E5%B7%B2%E7%9F%A5%E9%97%AE%E9%A2%98 "Translate to English") |
 
+### HMJ-2
+
+| Version | File Size | Added | Download | Issue | Description |
+|---------|-----------|-------|----------|-------|-------------|
+| v110 | 146 KB | Jul 24, 2026 | [📁 20250523160631745d66082.bin](firmwares/HMJ-2/110/20250523160631745d66082.bin) | [#29](../../issues/29) |  |
+
 ### VNSE3-0
 
 #### BMS
@@ -58,8 +64,8 @@ Community firmware archive for Marstek solar/battery devices.
 
 ---
 
-**Total firmware files:** 18
-**Last updated:** 7/24/2026, 2:06:11 PM UTC
+**Total firmware files:** 19
+**Last updated:** 7/24/2026, 4:01:08 PM UTC
 
 ## Usage
 
@@ -90,8 +96,8 @@ You can contribute by:
 
 ## Archive Structure
 
-- **Standard devices** (HMG-50): `firmwares/[device]/[type]/[version]/`
-- **HME devices** (HME-3, HME-4): `firmwares/[device]/[version]/`
+- **Standard devices** (HMG-50, VNSE3-0): `firmwares/[device]/[type]/[version]/`
+- **Flat-structure devices** (HME-3, HME-4, HMJ-2): `firmwares/[device]/[version]/`
 
 Each firmware directory contains:
 - Binary firmware file
