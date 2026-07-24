@@ -197,8 +197,8 @@ You can contribute by:
 
 ## Archive Structure
 
-- **Standard devices** (HMG-50): \`firmwares/[device]/[type]/[version]/\`
-- **HME devices** (HME-3, HME-4): \`firmwares/[device]/[version]/\`
+- **Standard devices** (HMG-50, VNSE3-0): \`firmwares/[device]/[type]/[version]/\`
+- **Flat-structure devices** (HME-3, HME-4, HMJ-2): \`firmwares/[device]/[version]/\`
 
 Each firmware directory contains:
 - Binary firmware file

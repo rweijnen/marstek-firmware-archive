@@ -19,7 +19,12 @@ jobs:
     permissions:
       contents: write
       issues: write
-    
+    env:
+      # Device types that store firmware in a flat structure (no firmwareType
+      # subfolder) and therefore do not require a firmwareType in metadata.
+      # Space-delimited with surrounding spaces for whole-word matching.
+      FLAT_STRUCTURE_DEVICES: " HME-3 HME-4 HMJ-2 "
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -78,9 +83,9 @@ jobs:
             echo "$issue_body" | sed -n '/```json/,/```/p' | sed '1d;$d' > metadata.json
           fi
           
-          # HME-3 and HME-4 devices use flatter structure
-          if [[ "$device_type" == "HME-3" ]] || [[ "$device_type" == "HME-4" ]]; then
-            echo "Target path: firmwares/$device_type/$version/ (HME device - no firmware type subfolder)"
+          # Devices in FLAT_STRUCTURE_DEVICES use a flatter structure
+          if [[ "$FLAT_STRUCTURE_DEVICES" == *" $device_type "* ]]; then
+            echo "Target path: firmwares/$device_type/$version/ (flat structure - no firmware type subfolder)"
           else
             echo "Target path: firmwares/$device_type/$firmware_type/$version/"
           fi
@@ -105,8 +110,8 @@ jobs:
           firmware_type_json=$(jq -r '.firmwareType' metadata.json)
           version_json=$(jq -r '.version' metadata.json)
           
-          # For HME-3 and HME-4 devices, firmwareType is not required
-          if [[ "$device_type_json" == "HME-3" ]] || [[ "$device_type_json" == "HME-4" ]]; then
+          # For flat-structure devices, firmwareType is not required
+          if [[ "$FLAT_STRUCTURE_DEVICES" == *" $device_type_json "* ]]; then
             if [ "$device_type_json" == "null" ] || [ "$version_json" == "null" ]; then
               echo "error=Missing required fields in metadata (deviceType, version)" >> $GITHUB_OUTPUT
               exit 1
@@ -127,13 +132,13 @@ jobs:
           firmware_type="${{ steps.extract-metadata.outputs.firmware_type }}"
           version="${{ steps.extract-metadata.outputs.version }}"
           
-          # HME-3 and HME-4 devices use flatter structure
-          if [[ "$device_type" == "HME-3" ]] || [[ "$device_type" == "HME-4" ]]; then
+          # Devices in FLAT_STRUCTURE_DEVICES use a flatter structure
+          if [[ "$FLAT_STRUCTURE_DEVICES" == *" $device_type "* ]]; then
             target_path="firmwares/$device_type/$version"
           else
             target_path="firmwares/$device_type/$firmware_type/$version"
           fi
-          
+
           if [ -d "$target_path" ]; then
             echo "exists=true" >> $GITHUB_OUTPUT
             echo "Firmware already exists at $target_path"
@@ -172,13 +177,13 @@ jobs:
           firmware_type="${{ steps.extract-metadata.outputs.firmware_type }}"
           version="${{ steps.extract-metadata.outputs.version }}"
           
-          # HME-3 and HME-4 devices use flatter structure
-          if [[ "$device_type" == "HME-3" ]] || [[ "$device_type" == "HME-4" ]]; then
+          # Devices in FLAT_STRUCTURE_DEVICES use a flatter structure
+          if [[ "$FLAT_STRUCTURE_DEVICES" == *" $device_type "* ]]; then
             target_path="firmwares/$device_type/$version"
           else
             target_path="firmwares/$device_type/$firmware_type/$version"
           fi
-          
+
           mkdir -p "$target_path"
           
           echo "Downloading to: $target_path/$filename"
