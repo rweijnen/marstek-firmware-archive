@@ -1,0 +1,44 @@
+{
+  "deviceType": "HMG-50",
+  "firmwareType": "Control",
+  "version": 156,
+  "url": "https://eu-central-1-s3-common-bucket.s3.dualstack.eu-central-1.amazonaws.com/uploads/ota/20251118/20251118172129117290445.bin",
+  "remark": "1.新增蓝牙广播开关功能\n2.新增配置第三方服务器功能\n3.优化OpenApi接口稳定性",
+  "chinese": "1.新增蓝牙广播开关功能\n2.新增配置第三方服务器功能\n3.优化OpenApi接口稳定性",
+  "apiResponse": {
+    "code": 1,
+    "show": 0,
+    "msg": "success",
+    "data": {
+      "control": {
+        "edition": 2597,
+        "devicetype": "",
+        "mcu_type": "control",
+        "type": "HMG",
+        "url": "https://eu-central-1-s3-common-bucket.s3.dualstack.eu-central-1.amazonaws.com/uploads/ota/20251118/20251118172129117290445.bin",
+        "version": 156,
+        "english": "1. Added Bluetooth broadcast switch feature\n2. Added third-party server configuration feature\n3. Optimized OpenApi interface stability",
+        "chinese": "1.新增蓝牙广播开关功能\n2.新增配置第三方服务器功能\n3.优化OpenApi接口稳定性",
+        "japanese": "",
+        "remark": "1.新增蓝牙广播开关功能\n2.新增配置第三方服务器功能\n3.优化OpenApi接口稳定性",
+        "is_boot": "N",
+        "is_http": "N",
+        "crc": "",
+        "size": 241664,
+        "force_update": "N"
+      },
+      "bms": "",
+      "mppt": "",
+      "micro": "",
+      "dcdc": "",
+      "bms_pack1": "",
+      "bms_pack2": "",
+      "led": "",
+      "charger": ""
+    }
+  },
+  "archivedAt": "2026-07-31T21:59:23Z",
+  "archivedFilename": "20251118172129117290445.bin",
+  "archivedFilesize": 241664,
+  "issueNumber": 32
+}

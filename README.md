@@ -33,6 +33,7 @@ Community firmware archive for Marstek solar/battery devices.
 
 | Version | File Size | Added | Download | Issue | Description |
 |---------|-----------|-------|----------|-------|-------------|
+| v156 | 236 KB | Jul 31, 2026 | [📁 20251118172129117290445.bin](firmwares/HMG-50/Control/156/20251118172129117290445.bin) | [#32](../../issues/32) | 1.新增蓝牙广播开关功能 2.新增配置第三方服务器功能 3.优化OpenApi接口稳定性 [🌐](https://translate.google.com/?sl=zh&tl=en&text=1.%E6%96%B0%E5%A2%9E%E8%93%9D%E7%89%99%E5%B9%BF%E6%92%AD%E5%BC%80%E5%85%B3%E5%8A%9F%E8%83%BD%0A2.%E6%96%B0%E5%A2%9E%E9%85%8D%E7%BD%AE%E7%AC%AC%E4%B8%89%E6%96%B9%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%8A%9F%E8%83%BD%0A3.%E4%BC%98%E5%8C%96OpenApi%E6%8E%A5%E5%8F%A3%E7%A8%B3%E5%AE%9A%E6%80%A7 "Translate to English") |
 | v155 | 232 KB | Oct 27, 2025 | [📁 202509161548003ff722863.bin](firmwares/HMG-50/Control/155/202509161548003ff722863.bin) | [#10](../../issues/10) | 新增充放电时累计功能；新增支持下发并网标准 [🌐](https://translate.google.com/?sl=zh&tl=en&text=%E6%96%B0%E5%A2%9E%E5%85%85%E6%94%BE%E7%94%B5%E6%97%B6%E7%B4%AF%E8%AE%A1%E5%8A%9F%E8%83%BD%EF%BC%9B%E6%96%B0%E5%A2%9E%E6%94%AF%E6%8C%81%E4%B8%8B%E5%8F%91%E5%B9%B6%E7%BD%91%E6%A0%87%E5%87%86 "Translate to English") |
 | v153 | 222 KB | Aug 25, 2025 | [📁 202505301136007a5b57023.bin](firmwares/HMG-50/Control/153/202505301136007a5b57023.bin) | - | 1、支持对无密码WIFI进行配网功能；2、优化一些已知问题 [🌐](https://translate.google.com/?sl=zh&tl=en&text=1%E3%80%81%E6%94%AF%E6%8C%81%E5%AF%B9%E6%97%A0%E5%AF%86%E7%A0%81WIFI%E8%BF%9B%E8%A1%8C%E9%85%8D%E7%BD%91%E5%8A%9F%E8%83%BD%EF%BC%9B2%E3%80%81%E4%BC%98%E5%8C%96%E4%B8%80%E4%BA%9B%E5%B7%B2%E7%9F%A5%E9%97%AE%E9%A2%98 "Translate to English") |
 
@@ -64,8 +65,8 @@ Community firmware archive for Marstek solar/battery devices.
 
 ---
 
-**Total firmware files:** 19
-**Last updated:** 7/24/2026, 4:01:08 PM UTC
+**Total firmware files:** 20
+**Last updated:** 7/31/2026, 9:59:23 PM UTC
 
 ## Usage
 
