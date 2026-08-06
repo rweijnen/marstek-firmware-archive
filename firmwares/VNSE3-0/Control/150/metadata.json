@@ -1,0 +1,44 @@
+{
+  "deviceType": "VNSE3-0",
+  "firmwareType": "Control",
+  "version": 150,
+  "url": "https://static-eu.marstekenergy.com/uploads/ota/20260804/VNSEE3-0_app_0150_0804_151249.bin",
+  "remark": "1、 优化以太网模式下Loacl API 发送异常 2、 优化以太网模式下Http升级失败问题 3、 新增Peak-shaving 功能 4、 优化Http数据过长导致数据丢失问题 5、 优化电表连接方式，采用CT_TYPE 连接",
+  "chinese": "1、 优化以太网模式下Loacl API 发送异常 2、 优化以太网模式下Http升级失败问题 3、 新增Peak-shaving 功能 4、 优化Http数据过长导致数据丢失问题 5、 优化电表连接方式，采用CT_TYPE 连接",
+  "apiResponse": {
+    "code": 1,
+    "show": 0,
+    "msg": "success",
+    "data": {
+      "control": {
+        "edition": 4224,
+        "devicetype": "",
+        "mcu_type": "control",
+        "type": "VNSE3-0",
+        "url": "https://static-eu.marstekenergy.com/uploads/ota/20260804/VNSEE3-0_app_0150_0804_151249.bin",
+        "version": 150,
+        "english": "",
+        "chinese": "1、 优化以太网模式下Loacl API 发送异常 2、 优化以太网模式下Http升级失败问题 3、 新增Peak-shaving 功能 4、 优化Http数据过长导致数据丢失问题 5、 优化电表连接方式，采用CT_TYPE 连接",
+        "japanese": "",
+        "remark": "1、 优化以太网模式下Loacl API 发送异常 2、 优化以太网模式下Http升级失败问题 3、 新增Peak-shaving 功能 4、 优化Http数据过长导致数据丢失问题 5、 优化电表连接方式，采用CT_TYPE 连接",
+        "is_boot": "N",
+        "is_http": "Y",
+        "crc": "10332",
+        "size": 374784,
+        "force_update": "N"
+      },
+      "bms": "",
+      "mppt": "",
+      "micro": "",
+      "dcdc": "",
+      "bms_pack1": "",
+      "bms_pack2": "",
+      "led": "",
+      "charger": ""
+    }
+  },
+  "archivedAt": "2026-08-06T14:21:57Z",
+  "archivedFilename": "VNSEE3-0_app_0150_0804_151249.bin",
+  "archivedFilesize": 374784,
+  "issueNumber": 33
+}
