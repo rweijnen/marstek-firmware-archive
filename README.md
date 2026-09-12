@@ -41,6 +41,7 @@ Community firmware archive for Marstek solar/battery devices.
 
 | Version | File Size | Added | Download | Issue | Description |
 |---------|-----------|-------|----------|-------|-------------|
+| v116 | 160 KB | Sep 12, 2026 | [📁 202508051050536604e3965.bin](firmwares/HMJ-2/116/202508051050536604e3965.bin) | [#35](../../issues/35) |  |
 | v110 | 146 KB | Jul 24, 2026 | [📁 20250523160631745d66082.bin](firmwares/HMJ-2/110/20250523160631745d66082.bin) | [#29](../../issues/29) |  |
 
 ### VNSE3-0
@@ -66,8 +67,8 @@ Community firmware archive for Marstek solar/battery devices.
 
 ---
 
-**Total firmware files:** 21
-**Last updated:** 8/6/2026, 2:21:57 PM UTC
+**Total firmware files:** 22
+**Last updated:** 9/12/2026, 11:34:30 AM UTC
 
 ## Usage
 

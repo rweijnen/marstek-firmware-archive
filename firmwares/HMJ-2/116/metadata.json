@@ -1,0 +1,19 @@
+{
+  "apiResponse": {
+    "code": "1",
+    "content": "Fix some bugs!",
+    "data": "https://eu-central-1-s3-common-bucket.s3.dualstack.eu-central-1.amazonaws.com/uploads/ota/20250805/202508051050536604e3965.bin",
+    "newVerion": "116",
+    "otaWay": "otaSelfBoot",
+    "subVerion": "6"
+  },
+  "deviceName": "Mama Geräteschuppen",
+  "deviceType": "HMJ-2",
+  "otaWay": "otaSelfBoot",
+  "url": "https://eu-central-1-s3-common-bucket.s3.dualstack.eu-central-1.amazonaws.com/uploads/ota/20250805/202508051050536604e3965.bin",
+  "version": "116",
+  "archivedAt": "2026-09-12T11:34:29Z",
+  "archivedFilename": "202508051050536604e3965.bin",
+  "archivedFilesize": 163840,
+  "issueNumber": 35
+}
