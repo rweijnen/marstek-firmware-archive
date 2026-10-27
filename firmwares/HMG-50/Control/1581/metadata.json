@@ -1,0 +1,44 @@
+{
+  "deviceType": "HMG-50",
+  "firmwareType": "Control",
+  "version": 1581,
+  "url": "https://static-eu.marstekenergy.com/uploads/ota/20260228/ac_app_1581_0228_1_164255.bin",
+  "remark": "优化AI模式执行异常",
+  "chinese": "优化AI模式执行异常",
+  "apiResponse": {
+    "code": 1,
+    "show": 0,
+    "msg": "success",
+    "data": {
+      "control": {
+        "edition": 2942,
+        "devicetype": "",
+        "mcu_type": "control",
+        "type": "HMG-50",
+        "url": "https://static-eu.marstekenergy.com/uploads/ota/20260228/ac_app_1581_0228_1_164255.bin",
+        "version": 1581,
+        "english": "",
+        "chinese": "优化AI模式执行异常",
+        "japanese": "",
+        "remark": "优化AI模式执行异常",
+        "is_boot": "N",
+        "is_http": "N",
+        "crc": "",
+        "size": 243712,
+        "force_update": "Y"
+      },
+      "bms": "",
+      "mppt": "",
+      "micro": "",
+      "dcdc": "",
+      "bms_pack1": "",
+      "bms_pack2": "",
+      "led": "",
+      "charger": ""
+    }
+  },
+  "archivedAt": "2026-10-27T12:57:43Z",
+  "archivedFilename": "ac_app_1581_0228_1_164255.bin",
+  "archivedFilesize": 243712,
+  "issueNumber": 36
+}
