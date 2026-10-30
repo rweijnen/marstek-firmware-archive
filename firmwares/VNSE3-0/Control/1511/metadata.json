@@ -1,0 +1,44 @@
+{
+  "deviceType": "VNSE3-0",
+  "firmwareType": "Control",
+  "version": 1511,
+  "url": "https://static-eu.marstekenergy.com/uploads/ota/20260928/VNSEE3-0_ems_app_0151_0928_094421.bin",
+  "remark": "1、优化modbus tcp 稳定性\n2、优化之前DOD异常状态不能放电问题\n3、添加Ymodel 升级类型校验\n4、优化AI模式校验以及查询设备当前AI策略\n5、修复预发布服URL错误，导致数据上传失败\n6、优化Https上传数据稳定性\n7、优化CT通信频率为1.1S",
+  "chinese": "1、优化modbus tcp 稳定性\n2、优化之前DOD异常状态不能放电问题\n3、添加Ymodel 升级类型校验\n4、优化AI模式校验以及查询设备当前AI策略\n5、修复预发布服URL错误，导致数据上传失败\n6、优化Https上传数据稳定性\n7、优化CT通信频率为1.1S",
+  "apiResponse": {
+    "code": 1,
+    "show": 0,
+    "msg": "success",
+    "data": {
+      "control": {
+        "edition": 4683,
+        "devicetype": "",
+        "mcu_type": "control",
+        "type": "VNSE3-0",
+        "url": "https://static-eu.marstekenergy.com/uploads/ota/20260928/VNSEE3-0_ems_app_0151_0928_094421.bin",
+        "version": 1511,
+        "english": "1. Optimise Modbus TCP stability 2. Fix issue where DOD in abnormal state can't discharge 3. Optimise AI mode execution errors 4. Optimise CT communication frequency to 1.1s",
+        "chinese": "1、优化modbus tcp 稳定性\n2、优化之前DOD异常状态不能放电问题\n3、添加Ymodel 升级类型校验\n4、优化AI模式校验以及查询设备当前AI策略\n5、修复预发布服URL错误，导致数据上传失败\n6、优化Https上传数据稳定性\n7、优化CT通信频率为1.1S",
+        "japanese": "",
+        "remark": "1、优化modbus tcp 稳定性\n2、优化之前DOD异常状态不能放电问题\n3、添加Ymodel 升级类型校验\n4、优化AI模式校验以及查询设备当前AI策略\n5、修复预发布服URL错误，导致数据上传失败\n6、优化Https上传数据稳定性\n7、优化CT通信频率为1.1S",
+        "is_boot": "N",
+        "is_http": "Y",
+        "crc": "37002",
+        "size": 378880,
+        "force_update": "N"
+      },
+      "bms": "",
+      "mppt": "",
+      "micro": "",
+      "dcdc": "",
+      "bms_pack1": "",
+      "bms_pack2": "",
+      "led": "",
+      "charger": ""
+    }
+  },
+  "archivedAt": "2026-10-30T18:22:29Z",
+  "archivedFilename": "VNSEE3-0_ems_app_0151_0928_094421.bin",
+  "archivedFilesize": 378880,
+  "issueNumber": 40
+}
